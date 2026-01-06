@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Hue Quest - Daily Color Mixing Challenge</title>
+    <meta name="description"
+        content="A daily color mixing puzzle. Match the target color, optimize your mixes, and climb the tiers!">
+
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#6366f1">
+
+    <!-- iOS/iPad Specific -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="HueQuest">
+    <link rel="apple-touch-icon" href="icon-192.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="game-container">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="title-section">
+                <h1 class="game-title">Hue Quest</h1>
+                <div class="puzzle-badge">
+                    <span class="puzzle-label" id="puzzleLabel">Puzzle #1</span>
+                    <span class="difficulty-badge" id="difficultyBadge">Easy</span>
+                    <span class="pb-badge" id="pbBadge" title="Personal Best">★ --</span>
+                    <span class="countdown-badge" id="countdownBadge" title="Next Puzzle">--:--:--</span>
+                </div>
+            </div>
+            <div class="streak-badge" id="streakBadge" title="Daily Streak">
+                <span class="streak-count" id="streakCount">0</span>
+                <span class="streak-label">day streak</span>
+            </div>
+            <div class="top-controls">
+                <button class="icon-btn" id="soundToggle" title="Toggle Sound">
+                    <span class="sound-on">♪</span>
+                    <span class="sound-off">♪̸</span>
+                </button>
+                <button class="icon-btn" id="resetBtn" title="Reset Puzzle">⟲</button>
+            </div>
+        </header>
+
+        <!-- Session Stats Banner -->
+        <div class="session-banner" id="sessionBanner">
+            <span class="session-title" id="sessionTitle">Warm-up Artist</span>
+            <span class="session-stats" id="sessionStats">0 Perfect Matches</span>
+        </div>
+
+        <!-- Phase Indicator -->
+        <div class="phase-indicator" id="phaseIndicator">
+            <div class="phase-tag draft" id="phaseTag">
+                <span class="phase-icon">🎨</span>
+                <span class="phase-text">Draft Mode</span>
+            </div>
+        </div>
+
+        <!-- Main Game Area -->
+        <div class="game-area">
+            <!-- Target Color -->
+            <div class="color-display target-display">
+                <span class="color-label">Target</span>
+                <div class="color-swatch target-swatch" id="targetSwatch"></div>
+            </div>
+
+            <!-- VS Indicator -->
+            <div class="vs-indicator">
+                <span class="match-value" id="matchValue">0%</span>
+                <span class="match-label">Match</span>
+                <div class="hint-badge" id="hintBadge"></div>
+            </div>
+
+            <!-- Current Mix with Difference Ring -->
+            <div class="color-display mix-display">
+                <span class="color-label">Your Mix</span>
+                <div class="mix-wrapper">
+                    <div class="difference-ring" id="differenceRing"></div>
+                    <div class="color-swatch mix-swatch" id="mixSwatch">
+                        <div class="swirl-effect" id="swirlEffect"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mix History Strip -->
+        <div class="history-section">
+            <div class="history-header">
+                <span class="history-label">Your Mix Path</span>
+                <span class="mix-counter" id="mixCounter">0 / 5 mixes</span>
+            </div>
+            <div class="history-strip" id="historyStrip">
+                <div class="history-square start-square" id="startSquare" title="Starting color"></div>
+            </div>
+        </div>
+
+        <!-- Source Colors -->
+        <div class="source-section">
+            <span class="section-label">Drag colors to mix</span>
+            <div class="source-colors" id="sourceColors"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-bar">
+            <button class="btn btn-secondary" id="undoBtn" disabled>
+                <span class="btn-icon">↩</span> Undo
+            </button>
+            <button class="btn btn-primary" id="commitBtn">
+                <span class="btn-icon">✓</span> Commit Result
+            </button>
+        </div>
+
+        <!-- Puzzle Navigation -->
+        <div class="puzzle-nav">
+            <button class="nav-btn" id="prevBtn" title="Previous Puzzle">‹ Prev</button>
+            <button class="nav-btn random" id="randomBtn" title="Random Puzzle">🎲 Random</button>
+            <button class="nav-btn" id="nextBtn" title="Next Puzzle">Next ›</button>
+        </div>
+
+        <!-- Official Result Banner (shown after commit) -->
+        <div class="official-result" id="officialResult">
+            <div class="result-header">
+                <span class="result-locked-icon">🔒</span>
+                <span class="result-locked-text">Official Result Locked</span>
+            </div>
+            <div class="result-details">
+                <div class="result-tier" id="officialTier">Professional Eye</div>
+                <div class="result-score" id="officialScore">92%</div>
+                <div class="result-efficiency" id="officialEfficiency">Used 3/5 mixes</div>
+            </div>
+            <div class="sandbox-notice" id="sandboxNotice">
+                <span class="sandbox-badge">🧪 Sandbox Mode</span>
+                <span class="sandbox-text">Continue experimenting — your official score is saved!</span>
+            </div>
+        </div>
+
+        <!-- Confetti Canvas -->
+        <canvas id="confettiCanvas"></canvas>
+
+        <!-- Results Modal -->
+        <div class="results-overlay" id="resultsOverlay">
+            <div class="results-modal">
+                <div class="result-celebration" id="resultCelebration">🎨</div>
+                <div class="new-pb-indicator" id="newPBIndicator">🏆 NEW PERSONAL BEST!</div>
+                <div class="result-tier-display" id="resultTierDisplay">Professional Eye</div>
+                <div class="result-match">
+                    <span class="result-percent" id="resultPercent">92%</span>
+                    <span class="result-label">Match Accuracy</span>
+                </div>
+                <div class="result-comparison">
+                    <div class="compare-swatch">
+                        <div class="swatch-preview" id="resultYourMix"></div>
+                        <span>Your Mix</span>
+                    </div>
+                    <div class="compare-arrow">→</div>
+                    <div class="compare-swatch">
+                        <div class="swatch-preview" id="resultTargetColor"></div>
+                        <span>Target</span>
+                    </div>
+                </div>
+                <div class="result-efficiency-display" id="resultEfficiencyDisplay">
+                    <span class="efficiency-icon">⚡</span>
+                    <span class="efficiency-text" id="resultEfficiencyText">Efficiency bonus for solving in 3/5
+                        mixes!</span>
+                </div>
+                <div class="result-path">
+                    <span class="path-label">Your Color Journey</span>
+                    <div class="result-history" id="resultHistory"></div>
+                </div>
+                <div class="result-actions">
+                    <button class="btn btn-share" id="shareBtn">📤 Share</button>
+                    <button class="btn btn-copy" id="copyBtn">📋 Copy</button>
+                </div>
+                <div class="result-actions" style="margin-top: 10px;">
+                    <button class="btn btn-secondary" id="sandboxBtn">🧪 Keep Experimenting</button>
+                    <button class="btn btn-primary" id="nextPuzzleBtn">Next Puzzle →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Daily Complete Banner -->
+    <div class="daily-complete-banner" id="dailyCompleteBanner">
+        <div class="banner-content">
+            <span class="banner-icon">✅</span>
+            <span class="banner-text">Today's puzzle complete!</span>
+            <span class="banner-countdown">Next puzzle in <span id="nextPuzzleTime">--:--:--</span></span>
+        </div>
+        <div class="banner-cta">
+            <button class="btn btn-banner" id="practiceRandomBtn">🎲 Practice with Random Puzzle</button>
+        </div>
+    </div>
+
+    <!-- Tutorial Overlay -->
+    <div class="tutorial-overlay" id="tutorialOverlay">
+        <div class="tutorial-modal">
+            <div class="tutorial-content">
+                <h3 class="tutorial-title">Welcome to HueQuest! 🎨</h3>
+                <p class="tutorial-text">Match the target color by mixing source colors. Each day brings a new puzzle!
+                </p>
+            </div>
+            <div class="tutorial-progress">
+                <span class="tutorial-dot active"></span>
+                <span class="tutorial-dot"></span>
+                <span class="tutorial-dot"></span>
+                <span class="tutorial-dot"></span>
+                <span class="tutorial-dot"></span>
+                <span class="tutorial-dot"></span>
+            </div>
+            <div class="tutorial-actions">
+                <button class="btn btn-secondary" id="tutorialSkipBtn">Skip</button>
+                <button class="btn btn-primary" id="tutorialNextBtn">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+
+</html>
