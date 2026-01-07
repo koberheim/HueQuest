@@ -16,55 +16,111 @@
 // }
 
 const PUZZLES = [
-    {
-        name: "Forest Green", difficulty: "easy", target: [34, 139, 34],
-        sources: [[0, 0, 255], [255, 255, 0], [0, 128, 0], [255, 255, 255]], mixLimit: 5
-    },
-    {
-        name: "Coral Reef", difficulty: "easy", target: [255, 127, 80],
-        sources: [[255, 0, 0], [255, 165, 0], [255, 255, 255], [255, 192, 203]], mixLimit: 5
-    },
-    {
-        name: "Twilight", difficulty: "medium", target: [75, 0, 130],
-        sources: [[0, 0, 255], [128, 0, 128], [255, 0, 255], [0, 0, 0], [255, 255, 255]], mixLimit: 5
-    },
-    {
-        name: "Desert Sand", difficulty: "medium", target: [210, 180, 140],
-        sources: [[255, 255, 0], [139, 69, 19], [255, 255, 255], [255, 200, 150], [200, 150, 100]], mixLimit: 4
-    },
-    {
-        name: "Ocean Deep", difficulty: "hard", target: [0, 105, 148],
-        sources: [[0, 0, 255], [0, 255, 255], [0, 128, 0], [0, 0, 0], [255, 255, 255]], mixLimit: 5
-    },
-    {
-        name: "Rose Gold", difficulty: "hard", target: [183, 110, 121],
-        sources: [[255, 192, 203], [255, 215, 0], [255, 255, 255], [139, 69, 19], [255, 0, 0]], mixLimit: 4
-    },
-    // NEW PUZZLES
-    {
-        name: "Mint Fresh", difficulty: "easy", target: [152, 255, 152],
-        sources: [[0, 255, 0], [255, 255, 255], [0, 255, 255], [144, 238, 144]], mixLimit: 5
-    },
-    {
-        name: "Dusty Rose", difficulty: "medium", target: [199, 144, 151],
-        sources: [[255, 192, 203], [139, 69, 19], [255, 255, 255], [128, 0, 0], [255, 228, 225]], mixLimit: 5
-    },
-    {
-        name: "Electric Violet", difficulty: "hard", target: [143, 0, 255],
-        sources: [[255, 0, 255], [0, 0, 255], [128, 0, 128], [255, 255, 255], [75, 0, 130]], mixLimit: 4
-    },
-    {
-        name: "Burnt Sienna", difficulty: "medium", target: [138, 54, 15],
-        sources: [[255, 0, 0], [139, 69, 19], [255, 165, 0], [0, 0, 0], [255, 255, 255]], mixLimit: 5
-    },
-    {
-        name: "Arctic Teal", difficulty: "hard", target: [64, 224, 208],
-        sources: [[0, 255, 255], [0, 128, 128], [255, 255, 255], [0, 255, 0], [0, 0, 128]], mixLimit: 4
-    },
-    {
-        name: "Golden Hour", difficulty: "easy", target: [255, 179, 71],
-        sources: [[255, 255, 0], [255, 165, 0], [255, 255, 255], [255, 215, 0], [255, 140, 0]], mixLimit: 5
-    }
+    // ========== EASY PUZZLES (33) ==========
+    { name: "Forest Green", difficulty: "easy", target: [34, 139, 34], sources: [[0, 0, 255], [255, 255, 0], [0, 128, 0], [255, 255, 255]], mixLimit: 5 },
+    { name: "Coral Reef", difficulty: "easy", target: [255, 127, 80], sources: [[255, 0, 0], [255, 165, 0], [255, 255, 255], [255, 192, 203]], mixLimit: 5 },
+    { name: "Mint Fresh", difficulty: "easy", target: [152, 255, 152], sources: [[0, 255, 0], [255, 255, 255], [0, 255, 255], [144, 238, 144]], mixLimit: 5 },
+    { name: "Golden Hour", difficulty: "easy", target: [255, 179, 71], sources: [[255, 255, 0], [255, 165, 0], [255, 255, 255], [255, 215, 0]], mixLimit: 5 },
+    { name: "Sky Blue", difficulty: "easy", target: [135, 206, 235], sources: [[0, 0, 255], [255, 255, 255], [0, 255, 255], [173, 216, 230]], mixLimit: 5 },
+    { name: "Peach", difficulty: "easy", target: [255, 218, 185], sources: [[255, 165, 0], [255, 255, 255], [255, 192, 203], [255, 228, 196]], mixLimit: 5 },
+    { name: "Lavender", difficulty: "easy", target: [230, 230, 250], sources: [[128, 0, 128], [255, 255, 255], [255, 192, 203], [216, 191, 216]], mixLimit: 5 },
+    { name: "Lemon", difficulty: "easy", target: [255, 247, 140], sources: [[255, 255, 0], [255, 255, 255], [255, 215, 0], [144, 238, 144]], mixLimit: 5 },
+    { name: "Baby Blue", difficulty: "easy", target: [173, 216, 230], sources: [[0, 0, 255], [255, 255, 255], [0, 255, 255], [135, 206, 235]], mixLimit: 5 },
+    { name: "Salmon", difficulty: "easy", target: [250, 128, 114], sources: [[255, 0, 0], [255, 165, 0], [255, 255, 255], [255, 192, 203]], mixLimit: 5 },
+    { name: "Lime", difficulty: "easy", target: [50, 205, 50], sources: [[0, 255, 0], [255, 255, 0], [0, 128, 0], [255, 255, 255]], mixLimit: 5 },
+    { name: "Pink Blush", difficulty: "easy", target: [255, 182, 193], sources: [[255, 192, 203], [255, 255, 255], [255, 105, 180], [255, 228, 225]], mixLimit: 5 },
+    { name: "Cream", difficulty: "easy", target: [255, 253, 208], sources: [[255, 255, 255], [255, 255, 0], [255, 228, 196], [255, 250, 205]], mixLimit: 5 },
+    { name: "Aqua", difficulty: "easy", target: [0, 255, 255], sources: [[0, 0, 255], [0, 255, 0], [255, 255, 255], [127, 255, 212]], mixLimit: 5 },
+    { name: "Light Coral", difficulty: "easy", target: [240, 128, 128], sources: [[255, 0, 0], [255, 255, 255], [255, 192, 203], [255, 160, 122]], mixLimit: 5 },
+    { name: "Pale Green", difficulty: "easy", target: [152, 251, 152], sources: [[0, 255, 0], [255, 255, 255], [144, 238, 144], [0, 250, 154]], mixLimit: 5 },
+    { name: "Butter", difficulty: "easy", target: [255, 225, 100], sources: [[255, 255, 0], [255, 255, 255], [255, 215, 0], [255, 250, 205]], mixLimit: 5 },
+    { name: "Powder Blue", difficulty: "easy", target: [176, 224, 230], sources: [[0, 0, 255], [255, 255, 255], [173, 216, 230], [135, 206, 250]], mixLimit: 5 },
+    { name: "Apricot", difficulty: "easy", target: [251, 206, 177], sources: [[255, 165, 0], [255, 255, 255], [255, 192, 203], [255, 218, 185]], mixLimit: 5 },
+    { name: "Thistle", difficulty: "easy", target: [216, 191, 216], sources: [[128, 0, 128], [255, 255, 255], [255, 192, 203], [230, 230, 250]], mixLimit: 5 },
+    { name: "Spring Green", difficulty: "easy", target: [0, 255, 127], sources: [[0, 255, 0], [0, 255, 255], [255, 255, 255], [127, 255, 212]], mixLimit: 5 },
+    { name: "Cotton Candy", difficulty: "easy", target: [255, 188, 217], sources: [[255, 192, 203], [255, 255, 255], [255, 105, 180], [255, 182, 193]], mixLimit: 5 },
+    { name: "Honeydew", difficulty: "easy", target: [240, 255, 240], sources: [[0, 255, 0], [255, 255, 255], [144, 238, 144], [245, 255, 250]], mixLimit: 5 },
+    { name: "Light Yellow", difficulty: "easy", target: [255, 255, 200], sources: [[255, 255, 0], [255, 255, 255], [255, 250, 205], [250, 250, 210]], mixLimit: 5 },
+    { name: "Alice Blue", difficulty: "easy", target: [240, 248, 255], sources: [[0, 0, 255], [255, 255, 255], [173, 216, 230], [230, 230, 250]], mixLimit: 5 },
+    { name: "Bisque", difficulty: "easy", target: [255, 228, 196], sources: [[255, 165, 0], [255, 255, 255], [255, 218, 185], [255, 250, 205]], mixLimit: 5 },
+    { name: "Orchid Light", difficulty: "easy", target: [238, 130, 238], sources: [[255, 0, 255], [255, 255, 255], [255, 192, 203], [218, 112, 214]], mixLimit: 5 },
+    { name: "Tea Green", difficulty: "easy", target: [208, 240, 192], sources: [[0, 255, 0], [255, 255, 255], [144, 238, 144], [152, 251, 152]], mixLimit: 5 },
+    { name: "Melon", difficulty: "easy", target: [253, 188, 180], sources: [[255, 127, 80], [255, 255, 255], [255, 192, 203], [250, 128, 114]], mixLimit: 5 },
+    { name: "Periwinkle", difficulty: "easy", target: [204, 204, 255], sources: [[0, 0, 255], [255, 255, 255], [230, 230, 250], [147, 112, 219]], mixLimit: 5 },
+    { name: "Champagne", difficulty: "easy", target: [247, 231, 206], sources: [[255, 215, 0], [255, 255, 255], [255, 228, 196], [255, 250, 205]], mixLimit: 5 },
+    { name: "Seafoam", difficulty: "easy", target: [159, 226, 191], sources: [[0, 255, 0], [0, 255, 255], [255, 255, 255], [127, 255, 212]], mixLimit: 5 },
+    { name: "Rose Quartz", difficulty: "easy", target: [247, 202, 201], sources: [[255, 192, 203], [255, 255, 255], [255, 182, 193], [255, 228, 225]], mixLimit: 5 },
+
+    // ========== MEDIUM PUZZLES (34) ==========
+    { name: "Twilight", difficulty: "medium", target: [75, 0, 130], sources: [[0, 0, 255], [128, 0, 128], [255, 0, 255], [0, 0, 0], [255, 255, 255]], mixLimit: 5 },
+    { name: "Desert Sand", difficulty: "medium", target: [210, 180, 140], sources: [[255, 255, 0], [139, 69, 19], [255, 255, 255], [255, 200, 150], [200, 150, 100]], mixLimit: 4 },
+    { name: "Dusty Rose", difficulty: "medium", target: [199, 144, 151], sources: [[255, 192, 203], [139, 69, 19], [255, 255, 255], [128, 0, 0], [255, 228, 225]], mixLimit: 5 },
+    { name: "Burnt Sienna", difficulty: "medium", target: [138, 54, 15], sources: [[255, 0, 0], [139, 69, 19], [255, 165, 0], [0, 0, 0], [255, 255, 255]], mixLimit: 5 },
+    { name: "Olive", difficulty: "medium", target: [128, 128, 0], sources: [[255, 255, 0], [0, 128, 0], [0, 0, 0], [139, 69, 19], [255, 255, 255]], mixLimit: 5 },
+    { name: "Mauve", difficulty: "medium", target: [204, 153, 204], sources: [[255, 0, 255], [255, 192, 203], [128, 0, 128], [255, 255, 255], [216, 191, 216]], mixLimit: 5 },
+    { name: "Terracotta", difficulty: "medium", target: [204, 78, 92], sources: [[255, 0, 0], [139, 69, 19], [255, 165, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
+    { name: "Sage", difficulty: "medium", target: [188, 184, 138], sources: [[0, 128, 0], [255, 255, 255], [139, 69, 19], [128, 128, 0], [144, 238, 144]], mixLimit: 5 },
+    { name: "Slate", difficulty: "medium", target: [112, 128, 144], sources: [[0, 0, 255], [128, 128, 128], [0, 0, 0], [255, 255, 255], [70, 130, 180]], mixLimit: 5 },
+    { name: "Rust", difficulty: "medium", target: [183, 65, 14], sources: [[255, 0, 0], [255, 165, 0], [139, 69, 19], [0, 0, 0], [255, 255, 255]], mixLimit: 5 },
+    { name: "Plum", difficulty: "medium", target: [142, 69, 133], sources: [[128, 0, 128], [255, 0, 255], [0, 0, 0], [139, 69, 19], [255, 255, 255]], mixLimit: 5 },
+    { name: "Caramel", difficulty: "medium", target: [255, 170, 51], sources: [[255, 165, 0], [255, 255, 0], [139, 69, 19], [255, 215, 0], [255, 255, 255]], mixLimit: 5 },
+    { name: "Moss", difficulty: "medium", target: [138, 154, 91], sources: [[0, 128, 0], [128, 128, 0], [139, 69, 19], [255, 255, 255], [144, 238, 144]], mixLimit: 5 },
+    { name: "Burgundy", difficulty: "medium", target: [128, 0, 32], sources: [[255, 0, 0], [128, 0, 128], [0, 0, 0], [139, 69, 19], [255, 255, 255]], mixLimit: 5 },
+    { name: "Teal", difficulty: "medium", target: [0, 128, 128], sources: [[0, 255, 255], [0, 128, 0], [0, 0, 255], [0, 0, 0], [255, 255, 255]], mixLimit: 5 },
+    { name: "Copper", difficulty: "medium", target: [184, 115, 51], sources: [[255, 165, 0], [139, 69, 19], [255, 0, 0], [255, 215, 0], [255, 255, 255]], mixLimit: 5 },
+    { name: "Wisteria", difficulty: "medium", target: [201, 160, 220], sources: [[128, 0, 128], [255, 255, 255], [255, 192, 203], [147, 112, 219], [230, 230, 250]], mixLimit: 5 },
+    { name: "Taupe", difficulty: "medium", target: [72, 60, 50], sources: [[139, 69, 19], [128, 128, 128], [0, 0, 0], [255, 255, 255], [160, 82, 45]], mixLimit: 5 },
+    { name: "Mustard", difficulty: "medium", target: [255, 219, 88], sources: [[255, 255, 0], [255, 165, 0], [139, 69, 19], [255, 215, 0], [255, 255, 255]], mixLimit: 5 },
+    { name: "Wine", difficulty: "medium", target: [114, 47, 55], sources: [[255, 0, 0], [128, 0, 128], [0, 0, 0], [139, 69, 19], [255, 255, 255]], mixLimit: 5 },
+    { name: "Steel Blue", difficulty: "medium", target: [70, 130, 180], sources: [[0, 0, 255], [128, 128, 128], [0, 255, 255], [0, 0, 0], [255, 255, 255]], mixLimit: 5 },
+    { name: "Brick", difficulty: "medium", target: [203, 65, 84], sources: [[255, 0, 0], [139, 69, 19], [0, 0, 0], [255, 165, 0], [255, 255, 255]], mixLimit: 5 },
+    { name: "Fern", difficulty: "medium", target: [79, 121, 66], sources: [[0, 128, 0], [255, 255, 0], [0, 0, 0], [144, 238, 144], [139, 69, 19]], mixLimit: 5 },
+    { name: "Blush", difficulty: "medium", target: [222, 93, 131], sources: [[255, 0, 0], [255, 192, 203], [255, 255, 255], [255, 105, 180], [128, 0, 0]], mixLimit: 5 },
+    { name: "Charcoal", difficulty: "medium", target: [54, 69, 79], sources: [[0, 0, 0], [128, 128, 128], [0, 0, 255], [255, 255, 255], [70, 130, 180]], mixLimit: 5 },
+    { name: "Honey", difficulty: "medium", target: [235, 177, 52], sources: [[255, 215, 0], [255, 165, 0], [139, 69, 19], [255, 255, 0], [255, 255, 255]], mixLimit: 5 },
+    { name: "Mulberry", difficulty: "medium", target: [197, 75, 140], sources: [[255, 0, 255], [128, 0, 128], [255, 0, 0], [255, 255, 255], [255, 192, 203]], mixLimit: 5 },
+    { name: "Denim", difficulty: "medium", target: [21, 96, 189], sources: [[0, 0, 255], [0, 0, 0], [70, 130, 180], [255, 255, 255], [0, 128, 128]], mixLimit: 5 },
+    { name: "Cinnamon", difficulty: "medium", target: [210, 105, 30], sources: [[255, 165, 0], [139, 69, 19], [255, 0, 0], [0, 0, 0], [255, 255, 255]], mixLimit: 5 },
+    { name: "Jade", difficulty: "medium", target: [0, 168, 107], sources: [[0, 255, 0], [0, 128, 128], [0, 255, 255], [0, 0, 0], [255, 255, 255]], mixLimit: 5 },
+    { name: "Auburn", difficulty: "medium", target: [165, 42, 42], sources: [[255, 0, 0], [139, 69, 19], [0, 0, 0], [255, 165, 0], [255, 255, 255]], mixLimit: 5 },
+    { name: "Lilac", difficulty: "medium", target: [200, 162, 200], sources: [[128, 0, 128], [255, 255, 255], [255, 192, 203], [230, 230, 250], [216, 191, 216]], mixLimit: 5 },
+    { name: "Khaki", difficulty: "medium", target: [195, 176, 145], sources: [[255, 255, 0], [139, 69, 19], [128, 128, 0], [255, 255, 255], [210, 180, 140]], mixLimit: 5 },
+    { name: "Pumpkin", difficulty: "medium", target: [255, 117, 24], sources: [[255, 165, 0], [255, 0, 0], [255, 255, 0], [139, 69, 19], [255, 255, 255]], mixLimit: 5 },
+
+    // ========== HARD PUZZLES (33) ==========
+    { name: "Ocean Deep", difficulty: "hard", target: [0, 105, 148], sources: [[0, 0, 255], [0, 255, 255], [0, 128, 0], [0, 0, 0], [255, 255, 255]], mixLimit: 5 },
+    { name: "Rose Gold", difficulty: "hard", target: [183, 110, 121], sources: [[255, 192, 203], [255, 215, 0], [255, 255, 255], [139, 69, 19], [255, 0, 0]], mixLimit: 4 },
+    { name: "Electric Violet", difficulty: "hard", target: [143, 0, 255], sources: [[255, 0, 255], [0, 0, 255], [128, 0, 128], [255, 255, 255], [75, 0, 130]], mixLimit: 4 },
+    { name: "Arctic Teal", difficulty: "hard", target: [64, 224, 208], sources: [[0, 255, 255], [0, 128, 128], [255, 255, 255], [0, 255, 0], [0, 0, 128]], mixLimit: 4 },
+    { name: "Obsidian", difficulty: "hard", target: [28, 28, 36], sources: [[0, 0, 0], [0, 0, 128], [128, 128, 128], [75, 0, 130], [255, 255, 255]], mixLimit: 4 },
+    { name: "Vermillion", difficulty: "hard", target: [227, 66, 52], sources: [[255, 0, 0], [255, 165, 0], [0, 0, 0], [139, 69, 19], [255, 255, 255]], mixLimit: 4 },
+    { name: "Midnight", difficulty: "hard", target: [25, 25, 112], sources: [[0, 0, 255], [0, 0, 0], [75, 0, 130], [128, 0, 128], [255, 255, 255]], mixLimit: 4 },
+    { name: "Emerald", difficulty: "hard", target: [80, 200, 120], sources: [[0, 255, 0], [0, 128, 128], [0, 255, 255], [0, 0, 0], [255, 255, 255]], mixLimit: 4 },
+    { name: "Bronze", difficulty: "hard", target: [205, 127, 50], sources: [[255, 215, 0], [139, 69, 19], [255, 165, 0], [0, 0, 0], [255, 255, 255]], mixLimit: 4 },
+    { name: "Indigo", difficulty: "hard", target: [75, 0, 130], sources: [[0, 0, 255], [128, 0, 128], [0, 0, 0], [255, 0, 255], [255, 255, 255]], mixLimit: 4 },
+    { name: "Scarlet", difficulty: "hard", target: [255, 36, 0], sources: [[255, 0, 0], [255, 165, 0], [0, 0, 0], [255, 255, 0], [255, 255, 255]], mixLimit: 4 },
+    { name: "Cobalt", difficulty: "hard", target: [0, 71, 171], sources: [[0, 0, 255], [0, 128, 128], [0, 0, 0], [75, 0, 130], [255, 255, 255]], mixLimit: 4 },
+    { name: "Mahogany", difficulty: "hard", target: [192, 64, 0], sources: [[255, 0, 0], [139, 69, 19], [0, 0, 0], [255, 165, 0], [255, 255, 255]], mixLimit: 4 },
+    { name: "Sapphire", difficulty: "hard", target: [15, 82, 186], sources: [[0, 0, 255], [0, 0, 0], [128, 0, 128], [0, 128, 128], [255, 255, 255]], mixLimit: 4 },
+    { name: "Magenta Dark", difficulty: "hard", target: [139, 0, 139], sources: [[255, 0, 255], [128, 0, 128], [0, 0, 0], [255, 0, 0], [255, 255, 255]], mixLimit: 4 },
+    { name: "Forest Night", difficulty: "hard", target: [1, 50, 32], sources: [[0, 128, 0], [0, 0, 0], [0, 128, 128], [139, 69, 19], [255, 255, 255]], mixLimit: 4 },
+    { name: "Amethyst", difficulty: "hard", target: [153, 102, 204], sources: [[128, 0, 128], [0, 0, 255], [255, 0, 255], [255, 255, 255], [75, 0, 130]], mixLimit: 4 },
+    { name: "Crimson", difficulty: "hard", target: [220, 20, 60], sources: [[255, 0, 0], [128, 0, 0], [0, 0, 0], [255, 192, 203], [255, 255, 255]], mixLimit: 4 },
+    { name: "Navy", difficulty: "hard", target: [0, 0, 128], sources: [[0, 0, 255], [0, 0, 0], [75, 0, 130], [0, 128, 128], [255, 255, 255]], mixLimit: 4 },
+    { name: "Oxblood", difficulty: "hard", target: [74, 12, 19], sources: [[128, 0, 0], [0, 0, 0], [139, 69, 19], [255, 0, 0], [128, 0, 128]], mixLimit: 4 },
+    { name: "Cerulean", difficulty: "hard", target: [0, 123, 167], sources: [[0, 0, 255], [0, 255, 255], [0, 128, 128], [0, 0, 0], [255, 255, 255]], mixLimit: 4 },
+    { name: "Sienna", difficulty: "hard", target: [136, 45, 23], sources: [[139, 69, 19], [255, 0, 0], [0, 0, 0], [255, 165, 0], [255, 255, 255]], mixLimit: 4 },
+    { name: "Prussian", difficulty: "hard", target: [0, 49, 83], sources: [[0, 0, 255], [0, 0, 0], [0, 128, 128], [75, 0, 130], [255, 255, 255]], mixLimit: 4 },
+    { name: "Maroon", difficulty: "hard", target: [128, 0, 0], sources: [[255, 0, 0], [0, 0, 0], [139, 69, 19], [128, 0, 128], [255, 255, 255]], mixLimit: 4 },
+    { name: "Hunter Green", difficulty: "hard", target: [53, 94, 59], sources: [[0, 128, 0], [0, 0, 0], [139, 69, 19], [128, 128, 0], [255, 255, 255]], mixLimit: 4 },
+    { name: "Ruby", difficulty: "hard", target: [224, 17, 95], sources: [[255, 0, 0], [255, 0, 255], [0, 0, 0], [255, 192, 203], [255, 255, 255]], mixLimit: 4 },
+    { name: "Sepia", difficulty: "hard", target: [112, 66, 20], sources: [[139, 69, 19], [255, 165, 0], [0, 0, 0], [128, 128, 0], [255, 255, 255]], mixLimit: 4 },
+    { name: "Ultramarine", difficulty: "hard", target: [18, 10, 143], sources: [[0, 0, 255], [128, 0, 128], [0, 0, 0], [75, 0, 130], [255, 255, 255]], mixLimit: 4 },
+    { name: "Garnet", difficulty: "hard", target: [115, 54, 53], sources: [[128, 0, 0], [139, 69, 19], [0, 0, 0], [255, 0, 0], [255, 255, 255]], mixLimit: 4 },
+    { name: "Pine", difficulty: "hard", target: [1, 121, 111], sources: [[0, 128, 128], [0, 128, 0], [0, 0, 0], [0, 255, 255], [255, 255, 255]], mixLimit: 4 },
+    { name: "Carmine", difficulty: "hard", target: [150, 0, 24], sources: [[255, 0, 0], [0, 0, 0], [128, 0, 0], [128, 0, 128], [255, 255, 255]], mixLimit: 4 },
+    { name: "Viridian", difficulty: "hard", target: [64, 130, 109], sources: [[0, 128, 128], [0, 128, 0], [0, 0, 0], [0, 255, 255], [255, 255, 255]], mixLimit: 4 },
+    { name: "Byzantium", difficulty: "hard", target: [112, 41, 99], sources: [[128, 0, 128], [0, 0, 0], [255, 0, 255], [128, 0, 0], [255, 255, 255]], mixLimit: 4 }
 ];
 
 // ============================================
@@ -263,6 +319,80 @@ let isCommitted = false;
 let isSandboxMode = false;
 let officialResult = null;
 
+// ============================================
+// COZY TITLE SYSTEM
+// Paper craft themed titles for each match bracket
+// ============================================
+const COZY_TITLES = {
+    // <50% - Encouraging beginner titles
+    tier0: [
+        "Color Explorer", "Paint Dabbler", "Happy Accident",
+        "First Brushstrokes", "Mixing Adventurer", "Creative Spirit"
+    ],
+    // 50-60%
+    tier1: [
+        "Warm-Up Artist", "Getting Warmer", "On the Right Track",
+        "Color Student", "Palette Apprentice", "Budding Painter"
+    ],
+    // 60-70%
+    tier2: [
+        "Color Curious", "Hue Hunter", "Shade Seeker",
+        "Paint Pal", "Crafty Mixer", "Tint Tinkerer"
+    ],
+    // 70-75%
+    tier3: [
+        "Color Crafter", "Pigment Pro", "Skilled Blender",
+        "Hue Handler", "Palette Friend", "Shade Shaper"
+    ],
+    // 75-80%
+    tier4: [
+        "Cozy Colorist", "Warm Palette", "Happy Hues",
+        "Color Comfort", "Snug Shader", "Toasty Tones"
+    ],
+    // 80-85%
+    tier5: [
+        "Color Whisperer", "Hue Guru", "Shade Sage",
+        "Pigment Poet", "Tint Talent", "Mix Maestro"
+    ],
+    // 85-90%
+    tier6: [
+        "Master Mixer", "Color Virtuoso", "Palette Prodigy",
+        "Hue Hero", "Shade Specialist", "Blend Boss"
+    ],
+    // 90-95%
+    tier7: [
+        "Color Champion", "Chromatic Genius", "Pigment Perfectionist",
+        "Hue Wizard", "Palette Master", "Tone Titan"
+    ],
+    // 95-99%
+    tier8: [
+        "Legendary Colorist", "Color Sage", "Supreme Blender",
+        "Prismatic Pro", "Ultimate Artist", "Hue Sensei"
+    ],
+    // 100%
+    tier9: [
+        "Perfect Match! ✨", "Color Perfection!", "Flawless Artist!",
+        "True Master!", "Absolute Genius!", "Immaculate Blend!"
+    ]
+};
+
+function getCozyTitle(matchPercent) {
+    let tier;
+    if (matchPercent < 50) tier = 'tier0';
+    else if (matchPercent < 60) tier = 'tier1';
+    else if (matchPercent < 70) tier = 'tier2';
+    else if (matchPercent < 75) tier = 'tier3';
+    else if (matchPercent < 80) tier = 'tier4';
+    else if (matchPercent < 85) tier = 'tier5';
+    else if (matchPercent < 90) tier = 'tier6';
+    else if (matchPercent < 95) tier = 'tier7';
+    else if (matchPercent < 100) tier = 'tier8';
+    else tier = 'tier9';
+
+    const titles = COZY_TITLES[tier];
+    return titles[Math.floor(Math.random() * titles.length)];
+}
+
 // Session stats (persisted to localStorage if available)
 let sessionStats = { perfectCount: 0, bestTier: null, puzzlesPlayed: 0 };
 
@@ -272,6 +402,7 @@ let personalBests = {}; // { puzzleIndex: bestScore }
 
 // Daily puzzle state
 let dailyCompleted = {}; // { "YYYY-M-D": true }
+let hintsRemaining = 1; // 1 free hint per puzzle
 let countdownInterval = null;
 let tutorialComplete = false;
 
@@ -322,6 +453,9 @@ const nextPuzzleBtn = $('nextPuzzleBtn');
 const streakBadge = $('streakBadge');
 const streakCount = $('streakCount');
 const pbBadge = $('pbBadge');
+const hintBtn = $('hintBtn');
+const hintCount = $('hintCount');
+const hintDisplay = $('hintDisplay');
 const hintBadge = $('hintBadge');
 const confettiCanvas = $('confettiCanvas');
 const confettiCtx = confettiCanvas ? confettiCanvas.getContext('2d') : null;
@@ -385,8 +519,127 @@ function playSound(type) {
 // ============================================
 const rgb = c => `rgb(${Math.round(c[0])},${Math.round(c[1])},${Math.round(c[2])})`;
 const blend = (c1, c2, w = 0.5) => [c1[0] * (1 - w) + c2[0] * w, c1[1] * (1 - w) + c2[1] * w, c1[2] * (1 - w) + c2[2] * w];
-const dist = (c1, c2) => Math.sqrt((c1[0] - c2[0]) ** 2 + (c1[1] - c2[1]) ** 2 + (c1[2] - c2[2]) ** 2);
-const matchPct = (c1, c2) => Math.round(Math.max(0, 100 - dist(c1, c2) / Math.sqrt(255 ** 2 * 3) * 100));
+
+// ============================================
+// CIE LAB COLOR SPACE (Perceptual Matching)
+// ============================================
+function rgbToLab(rgb) {
+    // RGB to XYZ
+    let r = rgb[0] / 255, g = rgb[1] / 255, b = rgb[2] / 255;
+    r = r > 0.04045 ? Math.pow((r + 0.055) / 1.055, 2.4) : r / 12.92;
+    g = g > 0.04045 ? Math.pow((g + 0.055) / 1.055, 2.4) : g / 12.92;
+    b = b > 0.04045 ? Math.pow((b + 0.055) / 1.055, 2.4) : b / 12.92;
+
+    let x = (r * 0.4124564 + g * 0.3575761 + b * 0.1804375) / 0.95047;
+    let y = (r * 0.2126729 + g * 0.7151522 + b * 0.0721750);
+    let z = (r * 0.0193339 + g * 0.1191920 + b * 0.9503041) / 1.08883;
+
+    // XYZ to Lab
+    x = x > 0.008856 ? Math.pow(x, 1 / 3) : (7.787 * x) + 16 / 116;
+    y = y > 0.008856 ? Math.pow(y, 1 / 3) : (7.787 * y) + 16 / 116;
+    z = z > 0.008856 ? Math.pow(z, 1 / 3) : (7.787 * z) + 16 / 116;
+    return [(116 * y) - 16, 500 * (x - y), 200 * (y - z)];
+}
+
+function deltaE(rgb1, rgb2) {
+    // CIEDE2000 - Industry standard perceptual color difference
+    const lab1 = rgbToLab(rgb1);
+    const lab2 = rgbToLab(rgb2);
+
+    const L1 = lab1[0], a1 = lab1[1], b1 = lab1[2];
+    const L2 = lab2[0], a2 = lab2[1], b2 = lab2[2];
+
+    // Weighting factors (standard values)
+    const kL = 1, kC = 1, kH = 1;
+
+    // Calculate C1, C2 (chroma)
+    const C1 = Math.sqrt(a1 * a1 + b1 * b1);
+    const C2 = Math.sqrt(a2 * a2 + b2 * b2);
+    const Cbar = (C1 + C2) / 2;
+
+    // Calculate a' (adjusted a)
+    const Cbar7 = Math.pow(Cbar, 7);
+    const G = 0.5 * (1 - Math.sqrt(Cbar7 / (Cbar7 + Math.pow(25, 7))));
+    const a1p = a1 * (1 + G);
+    const a2p = a2 * (1 + G);
+
+    // Calculate C' and h'
+    const C1p = Math.sqrt(a1p * a1p + b1 * b1);
+    const C2p = Math.sqrt(a2p * a2p + b2 * b2);
+
+    const h1p = Math.atan2(b1, a1p) * 180 / Math.PI;
+    const h2p = Math.atan2(b2, a2p) * 180 / Math.PI;
+    const h1pAdj = h1p < 0 ? h1p + 360 : h1p;
+    const h2pAdj = h2p < 0 ? h2p + 360 : h2p;
+
+    // Calculate deltas
+    const dLp = L2 - L1;
+    const dCp = C2p - C1p;
+
+    let dhp;
+    if (C1p * C2p === 0) {
+        dhp = 0;
+    } else if (Math.abs(h2pAdj - h1pAdj) <= 180) {
+        dhp = h2pAdj - h1pAdj;
+    } else if (h2pAdj - h1pAdj > 180) {
+        dhp = h2pAdj - h1pAdj - 360;
+    } else {
+        dhp = h2pAdj - h1pAdj + 360;
+    }
+
+    const dHp = 2 * Math.sqrt(C1p * C2p) * Math.sin(dhp * Math.PI / 360);
+
+    // Calculate weighted averages
+    const Lbarp = (L1 + L2) / 2;
+    const Cbarp = (C1p + C2p) / 2;
+
+    let hbarp;
+    if (C1p * C2p === 0) {
+        hbarp = h1pAdj + h2pAdj;
+    } else if (Math.abs(h1pAdj - h2pAdj) <= 180) {
+        hbarp = (h1pAdj + h2pAdj) / 2;
+    } else if (h1pAdj + h2pAdj < 360) {
+        hbarp = (h1pAdj + h2pAdj + 360) / 2;
+    } else {
+        hbarp = (h1pAdj + h2pAdj - 360) / 2;
+    }
+
+    // Calculate T
+    const T = 1 - 0.17 * Math.cos((hbarp - 30) * Math.PI / 180)
+        + 0.24 * Math.cos(2 * hbarp * Math.PI / 180)
+        + 0.32 * Math.cos((3 * hbarp + 6) * Math.PI / 180)
+        - 0.20 * Math.cos((4 * hbarp - 63) * Math.PI / 180);
+
+    // Calculate SL, SC, SH
+    const Lbarp50sq = Math.pow(Lbarp - 50, 2);
+    const SL = 1 + (0.015 * Lbarp50sq) / Math.sqrt(20 + Lbarp50sq);
+    const SC = 1 + 0.045 * Cbarp;
+    const SH = 1 + 0.015 * Cbarp * T;
+
+    // Calculate RT (rotation)
+    const dtheta = 30 * Math.exp(-Math.pow((hbarp - 275) / 25, 2));
+    const Cbarp7 = Math.pow(Cbarp, 7);
+    const RC = 2 * Math.sqrt(Cbarp7 / (Cbarp7 + Math.pow(25, 7)));
+    const RT = -Math.sin(2 * dtheta * Math.PI / 180) * RC;
+
+    // Final calculation
+    const dE = Math.sqrt(
+        Math.pow(dLp / (kL * SL), 2) +
+        Math.pow(dCp / (kC * SC), 2) +
+        Math.pow(dHp / (kH * SH), 2) +
+        RT * (dCp / (kC * SC)) * (dHp / (kH * SH))
+    );
+
+    return dE;
+}
+
+// CIEDE2000: 0 = perfect match, ~1 = just noticeable, ~2.3 = clearly different
+// We scale: dE < 1 = 100%, dE 30+ = 0%
+const matchPct = (c1, c2) => {
+    const de = deltaE(c1, c2);
+    // Scale: deltaE 0 = 100%, deltaE 30+ = 0%
+    return Math.round(Math.max(0, Math.min(100, 100 - (de * 100 / 30))));
+};
 
 function getTier(pct) {
     if (pct >= TIERS.perfect.min) return TIERS.perfect;
@@ -663,49 +916,198 @@ function skipTutorial() {
 }
 
 // ============================================
-// COLOR HINTS (NEW)
+// COLOR HINTS (Actionable System - Premium Feature)
 // ============================================
-function getColorHint(current, target) {
-    const rDiff = target[0] - current[0];
-    const gDiff = target[1] - current[1];
-    const bDiff = target[2] - current[2];
+let highlightedBlobIndex = -1;
 
-    const totalDiff = Math.abs(rDiff) + Math.abs(gDiff) + Math.abs(bDiff);
-    if (totalDiff < 50) return { text: "Almost there! 🎯", type: "neutral" };
+// Get a list of color names for friendly hint messages
+function getColorName(rgb) {
+    const colorNames = [
+        { name: 'red', rgb: [255, 0, 0] },
+        { name: 'orange', rgb: [255, 165, 0] },
+        { name: 'yellow', rgb: [255, 255, 0] },
+        { name: 'green', rgb: [0, 255, 0] },
+        { name: 'dark green', rgb: [0, 128, 0] },
+        { name: 'cyan', rgb: [0, 255, 255] },
+        { name: 'teal', rgb: [0, 128, 128] },
+        { name: 'blue', rgb: [0, 0, 255] },
+        { name: 'purple', rgb: [128, 0, 128] },
+        { name: 'magenta', rgb: [255, 0, 255] },
+        { name: 'pink', rgb: [255, 192, 203] },
+        { name: 'white', rgb: [255, 255, 255] },
+        { name: 'black', rgb: [0, 0, 0] },
+        { name: 'gray', rgb: [128, 128, 128] },
+        { name: 'brown', rgb: [139, 69, 19] },
+        { name: 'gold', rgb: [255, 215, 0] },
+        { name: 'lime', rgb: [144, 238, 144] },
+        { name: 'coral', rgb: [255, 127, 80] },
+        { name: 'salmon', rgb: [250, 128, 114] },
+        { name: 'navy', rgb: [0, 0, 128] },
+        { name: 'indigo', rgb: [75, 0, 130] },
+        { name: 'violet', rgb: [238, 130, 238] },
+        { name: 'lavender', rgb: [230, 230, 250] },
+        { name: 'turquoise', rgb: [64, 224, 208] },
+        { name: 'aquamarine', rgb: [127, 255, 212] },
+    ];
 
-    // Determine dominant need
-    const absR = Math.abs(rDiff);
-    const absG = Math.abs(gDiff);
-    const absB = Math.abs(bDiff);
+    let closestName = 'this color';
+    let closestDist = Infinity;
 
-    if (absR > absG && absR > absB) {
-        return rDiff > 0
-            ? { text: "Needs warmth ☀️", type: "warm" }
-            : { text: "Too red, cool it down 🧊", type: "cool" };
-    } else if (absG > absR && absG > absB) {
-        return gDiff > 0
-            ? { text: "Needs nature 🌿", type: "neutral" }
-            : { text: "Less green 🍂", type: "warm" };
-    } else {
-        return bDiff > 0
-            ? { text: "Needs depth 🌊", type: "cool" }
-            : { text: "Less blue, more earth 🏜️", type: "warm" };
+    for (const c of colorNames) {
+        const dist = Math.sqrt(
+            Math.pow(rgb[0] - c.rgb[0], 2) +
+            Math.pow(rgb[1] - c.rgb[1], 2) +
+            Math.pow(rgb[2] - c.rgb[2], 2)
+        );
+        if (dist < closestDist) {
+            closestDist = dist;
+            closestName = c.name;
+        }
+    }
+
+    return closestName;
+}
+
+// Clear any highlighted source blobs
+function clearHintHighlight() {
+    if (highlightedBlobIndex >= 0) {
+        const blobs = sourceColors.querySelectorAll('.source-blob');
+        blobs.forEach(blob => blob.classList.remove('hint-recommended'));
+        highlightedBlobIndex = -1;
     }
 }
 
-function updateHintDisplay() {
-    if (!hintBadge) return;
-    const puzzle = PUZZLES[currentPuzzleIndex];
-    const pct = matchPct(currentColor, puzzle.target);
+// Find the best action: which source to add, or whether to undo
+function findBestHintAction(current, target, sources, previousColor) {
+    const currentDeltaE = deltaE(current, target);
 
-    // Show hint after 1+ mixes AND if match < 60%
-    if (mixCount >= 1 && pct < 60 && !isCommitted) {
-        const hint = getColorHint(currentColor, puzzle.target);
-        hintBadge.textContent = hint.text;
-        hintBadge.className = `hint-badge show ${hint.type}`;
-    } else {
-        hintBadge.className = 'hint-badge';
+    // If we're very close, just say so
+    if (currentDeltaE < 3) {
+        return { action: 'close', text: "You're almost perfect! 🎯", blobIndex: -1 };
     }
+
+    // Evaluate each source color
+    let bestSourceIndex = -1;
+    let bestSourceDeltaE = currentDeltaE;
+
+    sources.forEach((sourceColor, index) => {
+        const blendedColor = blend(current, sourceColor);
+        const newDeltaE = deltaE(blendedColor, target);
+
+        if (newDeltaE < bestSourceDeltaE) {
+            bestSourceDeltaE = newDeltaE;
+            bestSourceIndex = index;
+        }
+    });
+
+    // Check if undoing would be better (if we have history)
+    let undoDeltaE = Infinity;
+    if (previousColor) {
+        undoDeltaE = deltaE(previousColor, target);
+    }
+
+    // Determine best action
+    if (previousColor && undoDeltaE < currentDeltaE && undoDeltaE <= bestSourceDeltaE) {
+        // Undo is the best option
+        return {
+            action: 'undo',
+            text: "Your last mix moved away from the target — try undoing! ↩️",
+            blobIndex: -1
+        };
+    } else if (bestSourceIndex >= 0 && bestSourceDeltaE < currentDeltaE) {
+        // Found a helpful source color
+        const colorName = getColorName(sources[bestSourceIndex]);
+        return {
+            action: 'add',
+            text: `Try adding the ${colorName}! 💡`,
+            blobIndex: bestSourceIndex
+        };
+    } else {
+        // No good option found - stuck
+        if (previousColor) {
+            return {
+                action: 'undo',
+                text: "You may have overshot — try undoing and taking a different path! 🔄",
+                blobIndex: -1
+            };
+        } else {
+            // First mix, just suggest the best available
+            if (bestSourceIndex >= 0) {
+                const colorName = getColorName(sources[bestSourceIndex]);
+                return {
+                    action: 'add',
+                    text: `Start with the ${colorName}! 💡`,
+                    blobIndex: bestSourceIndex
+                };
+            }
+            return {
+                action: 'stuck',
+                text: "Hmm, this is tricky! Try experimenting. 🤔",
+                blobIndex: -1
+            };
+        }
+    }
+}
+
+function useHint() {
+    if (hintsRemaining <= 0 || isCommitted) return;
+
+    const puzzle = PUZZLES[currentPuzzleIndex];
+
+    // Get previous color from history (if any)
+    const previousColor = mixHistory.length > 0 ? mixHistory[mixHistory.length - 1] : null;
+
+    // Find the best action
+    const hintResult = findBestHintAction(
+        currentColor,
+        puzzle.target,
+        puzzle.sources,
+        previousColor
+    );
+
+    hintsRemaining--;
+    updateHintUI();
+
+    // Clear any previous highlight
+    clearHintHighlight();
+
+    // Show the hint text
+    if (hintDisplay) {
+        hintDisplay.textContent = hintResult.text;
+        hintDisplay.className = 'hint-display show ' +
+            (hintResult.action === 'undo' ? 'warm' :
+                hintResult.action === 'close' ? 'neutral' : 'cool');
+    }
+
+    // Highlight the recommended source blob
+    if (hintResult.blobIndex >= 0) {
+        const blobs = sourceColors.querySelectorAll('.source-blob');
+        if (blobs[hintResult.blobIndex]) {
+            blobs[hintResult.blobIndex].classList.add('hint-recommended');
+            highlightedBlobIndex = hintResult.blobIndex;
+        }
+    }
+
+    analytics.track('gameplay', 'hint_used', puzzle.name, hintsRemaining);
+}
+
+function updateHintUI() {
+    if (hintBtn) {
+        hintBtn.disabled = hintsRemaining <= 0 || isCommitted;
+    }
+    if (hintCount) {
+        hintCount.textContent = `(${hintsRemaining})`;
+    }
+}
+
+function resetHints() {
+    hintsRemaining = 1;
+    clearHintHighlight();
+    if (hintDisplay) {
+        hintDisplay.className = 'hint-display';
+        hintDisplay.textContent = '';
+    }
+    updateHintUI();
 }
 
 // ============================================
@@ -816,36 +1218,29 @@ function updateUI() {
     const puzzle = PUZZLES[currentPuzzleIndex];
     const pct = matchPct(currentColor, puzzle.target);
 
-    // Match display
-    matchValue.textContent = pct + '%';
-    matchValue.className = 'match-value' + (pct >= 80 ? ' high' : pct >= 50 ? ' medium' : '');
+    // Match display - HIDDEN until committed to add strategic risk
+    if (isCommitted || isSandboxMode) {
+        matchValue.textContent = pct + '%';
+        matchValue.className = 'match-value' + (pct >= 80 ? ' high' : pct >= 50 ? ' medium' : '');
+    } else {
+        matchValue.textContent = '??%';
+        matchValue.className = 'match-value hidden';
+    }
 
-    // Difference ring
+    // Difference ring - still provides visual hint without exact %
     differenceRing.className = 'difference-ring' + (pct >= 80 ? ' close' : pct >= 50 ? ' medium' : '');
 
     // Mix counter
     mixCounter.textContent = `${mixCount} / ${puzzle.mixLimit} mixes`;
     mixCounter.className = 'mix-counter' + (mixCount >= puzzle.mixLimit ? ' at-limit' : '');
 
-    // Phase tag
-    if (isSandboxMode) {
-        phaseTag.className = 'phase-tag sandbox';
-        phaseTag.innerHTML = '<span class="phase-icon">🧪</span><span class="phase-text">Sandbox Mode</span>';
-    } else if (isCommitted) {
-        phaseTag.className = 'phase-tag committed';
-        phaseTag.innerHTML = '<span class="phase-icon">✓</span><span class="phase-text">Committed</span>';
-    } else {
-        phaseTag.className = 'phase-tag draft';
-        phaseTag.innerHTML = '<span class="phase-icon">🎨</span><span class="phase-text">Draft Mode</span>';
-    }
-
     // Buttons
     undoBtn.disabled = mixHistory.length === 0;
     commitBtn.disabled = isCommitted;
-    commitBtn.innerHTML = isCommitted ? '<span class="btn-icon">🔒</span> Locked' : '<span class="btn-icon">✓</span> Commit Result';
+    commitBtn.innerHTML = isCommitted ? '<span class="btn-icon">🔒</span> Locked In!' : '<span class="btn-icon">✓</span> Lock It In!';
 
-    // Highlight commit button when match is good (80%+) and not yet committed
-    const shouldHighlight = pct >= 80 && !isCommitted && mixCount > 0;
+    // Highlight commit button when player has made at least one mix
+    const shouldHighlight = !isCommitted && mixCount > 0;
     commitBtn.classList.toggle('highlight', shouldHighlight);
 
     // Nav
@@ -885,6 +1280,8 @@ function loadPuzzle(index) {
     isCommitted = false;
     isSandboxMode = false;
     officialResult = null;
+    resetHints(); // Reset hint state for new puzzle
+    cleanupDragState(); // Remove any stale ghost elements
 
     // UI - Use daily puzzle number if loading today's puzzle
     const dailyIndex = getDailyPuzzleIndex();
@@ -961,6 +1358,7 @@ function startDrag(e) {
     document.addEventListener('mouseup', endDrag);
     document.addEventListener('touchmove', onDrag, { passive: false });
     document.addEventListener('touchend', endDrag);
+    document.addEventListener('touchcancel', endDrag); // Handle interrupted touches
 }
 
 function onDrag(e) {
@@ -991,6 +1389,16 @@ function endDrag(e) {
     document.removeEventListener('mouseup', endDrag);
     document.removeEventListener('touchmove', onDrag);
     document.removeEventListener('touchend', endDrag);
+    document.removeEventListener('touchcancel', endDrag);
+}
+
+// Cleanup any stale ghosts (safety net)
+function cleanupDragState() {
+    if (ghostElement) { ghostElement.remove(); ghostElement = null; }
+    if (draggedElement) { draggedElement.classList.remove('dragging'); draggedElement = null; }
+    draggedColor = null;
+    hidePreview();
+    document.querySelectorAll('.drag-ghost').forEach(el => el.remove());
 }
 
 function getPos(e) {
@@ -1005,6 +1413,9 @@ function getPos(e) {
 function applyMix(newColor) {
     const puzzle = PUZZLES[currentPuzzleIndex];
     if (mixCount >= puzzle.mixLimit && !isSandboxMode) return;
+
+    // Clear any hint highlight when mixing
+    clearHintHighlight();
 
     mixHistory.push([...currentColor]);
     currentColor = blend(currentColor, newColor);
@@ -1038,6 +1449,10 @@ function applyMix(newColor) {
 
 function undoMix() {
     if (mixHistory.length === 0) return;
+
+    // Clear any hint highlight when undoing
+    clearHintHighlight();
+
     currentColor = mixHistory.pop();
     colorHistory.pop();
     mixCount--;
@@ -1103,8 +1518,10 @@ function showResultsModal() {
     const puzzle = PUZZLES[currentPuzzleIndex];
     const { pct, tier, mixCount: mc } = officialResult;
 
+    // Use cozy title system instead of tier names
+    const cozyTitle = getCozyTitle(pct);
     resultCelebration.textContent = tier.icon;
-    resultTierDisplay.textContent = tier.name;
+    resultTierDisplay.textContent = cozyTitle;
     resultTierDisplay.className = 'result-tier-display ' + tier.class;
     resultPercent.textContent = pct + '%';
     resultYourMix.style.backgroundColor = rgb(officialResult.color);
@@ -1251,6 +1668,11 @@ function init() {
                 setTimeout(() => { copyBtn.textContent = '📋 Copy'; }, 2000);
             }
         });
+    }
+
+    // Hint button
+    if (hintBtn) {
+        hintBtn.addEventListener('click', useHint);
     }
 
     // Tutorial buttons

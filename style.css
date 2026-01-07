@@ -1,4 +1,4 @@
-/* HUE QUEST - Premium 2025 Mobile Game Aesthetic */
+/* HUE QUEST - Cozy Paper Craft Aesthetic */
 * {
     margin: 0;
     padding: 0;
@@ -6,46 +6,58 @@
 }
 
 :root {
-    /* Dark mode palette */
-    --bg-dark: #0a0a0f;
-    --bg-gradient: linear-gradient(165deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
-    --card: rgba(255, 255, 255, 0.03);
-    --card-glass: rgba(255, 255, 255, 0.06);
-    --card-solid: #1a1a2e;
-    --text: #f8fafc;
-    --text2: #a1a1aa;
-    --muted: #71717a;
+    /* Paper Craft Palette - Warm & Cozy */
+    --kraft: #c4a77d;
+    --kraft-dark: #a68b5b;
+    --kraft-light: #d4c4a8;
+    --cream: #f5f0e6;
+    --cream-dark: #e8dfd0;
+    --paper-white: #fffef9;
+    --text: #4a3728;
+    --text-light: #6b5344;
+    --text-muted: #8b7355;
 
-    /* Vibrant accents */
-    --accent: #818cf8;
-    --accent2: #6366f1;
-    --accent-l: rgba(129, 140, 248, 0.15);
-    --accent-glow: rgba(129, 140, 248, 0.4);
-    --success: #34d399;
-    --success-l: rgba(52, 211, 153, 0.15);
-    --success-glow: rgba(52, 211, 153, 0.4);
-    --warn: #fbbf24;
-    --warn-l: rgba(251, 191, 36, 0.15);
-    --danger: #f87171;
-    --danger-l: rgba(248, 113, 113, 0.15);
-    --purple: #a78bfa;
-    --purple-l: rgba(167, 139, 250, 0.15);
-    --border: rgba(255, 255, 255, 0.08);
-    --border-glass: rgba(255, 255, 255, 0.12);
+    /* Warm accents */
+    --accent: #c96b4b;
+    --accent-light: #e8a88c;
+    --accent-bg: rgba(201, 107, 75, 0.15);
+    --success: #7ab55c;
+    --success-light: #a8d48c;
+    --warn: #e4a853;
+    --warn-light: #f0c97a;
+    --danger: #d4645c;
 
-    /* Premium shadows */
-    --shadow: 0 4px 24px rgba(0, 0, 0, .4);
-    --shadow-lg: 0 8px 40px rgba(0, 0, 0, .5);
-    --shadow-glow: 0 0 30px var(--accent-glow);
-    --r-sm: 10px;
-    --r-md: 14px;
-    --r-lg: 18px;
-    --r-xl: 28px
+    /* Washi tape colors */
+    --washi-mint: #a8d5ba;
+    --washi-pink: #f0c4c4;
+    --washi-blue: #b4d4e7;
+    --washi-yellow: #f5e6a3;
+
+    /* Paper shadows - soft & cozy */
+    --shadow-paper: 2px 3px 8px rgba(74, 55, 40, 0.12);
+    --shadow-lifted: 4px 6px 16px rgba(74, 55, 40, 0.18);
+    --shadow-curl: 0 2px 4px rgba(74, 55, 40, 0.1), 4px 4px 8px rgba(74, 55, 40, 0.08);
+
+    /* Border radius - slightly organic */
+    --r-sm: 6px;
+    --r-md: 10px;
+    --r-lg: 14px;
+    --r-xl: 20px
 }
 
 body {
-    font-family: 'Inter', system-ui, sans-serif;
-    background: linear-gradient(165deg, #0a0a0f 0%, #12121a 50%, #0f0f18 100%);
+    font-family: 'Patrick Hand', 'Caveat', cursive;
+    font-size: 18px;
+    background:
+        url('paper-craft-bg.png'),
+        repeating-linear-gradient(0deg,
+            transparent,
+            transparent 2px,
+            rgba(139, 115, 85, 0.03) 2px,
+            rgba(139, 115, 85, 0.03) 4px),
+        linear-gradient(135deg, #c4a77d 0%, #d4c4a8 50%, #c4a77d 100%);
+    background-size: 300px, auto, auto;
+    background-attachment: fixed;
     min-height: 100vh;
     min-height: 100dvh;
     display: flex;
@@ -55,17 +67,65 @@ body {
     overflow-x: hidden
 }
 
-/* Solid dark container - no glass */
+/* Background overlay for subtle effect */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(196, 167, 125, 0.7);
+    pointer-events: none;
+    z-index: 0
+}
+
+/* Main Paper Card */
 .game-container {
     width: 100%;
     max-width: 420px;
-    background: linear-gradient(180deg, #1a1a24 0%, #141420 100%);
-    border-radius: var(--r-xl);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    padding: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    background: var(--cream);
+    border-radius: 4px;
+    padding: 24px;
     position: relative;
-    z-index: 1
+    z-index: 1;
+    /* Paper edge effect */
+    box-shadow:
+        var(--shadow-lifted),
+        inset 0 0 0 1px rgba(74, 55, 40, 0.08);
+    /* Slight paper texture */
+    background-image:
+        repeating-linear-gradient(45deg,
+            transparent,
+            transparent 1px,
+            rgba(74, 55, 40, 0.015) 1px,
+            rgba(74, 55, 40, 0.015) 2px);
+}
+
+/* Washi tape corner decoration */
+.game-container::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 20px;
+    width: 60px;
+    height: 22px;
+    background: var(--washi-mint);
+    opacity: 0.85;
+    transform: rotate(-2deg);
+    border-radius: 2px;
+    box-shadow: 1px 2px 4px rgba(74, 55, 40, 0.15);
+}
+
+.game-container::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: 25px;
+    width: 50px;
+    height: 20px;
+    background: var(--washi-pink);
+    opacity: 0.85;
+    transform: rotate(3deg);
+    border-radius: 2px;
+    box-shadow: 1px 2px 4px rgba(74, 55, 40, 0.15);
 }
 
 /* Top Bar */
@@ -73,26 +133,23 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     padding-bottom: 12px;
-    border-bottom: 1px solid var(--border)
+    border-bottom: 2px dashed var(--kraft-light)
 }
 
 .title-section {
     display: flex;
     flex-direction: column;
-    gap: 6px
+    gap: 4px
 }
 
 .game-title {
-    font-size: 26px;
-    font-weight: 800;
-    background: linear-gradient(135deg, #a78bfa, #818cf8, #6366f1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    filter: drop-shadow(0 0 20px rgba(129, 140, 248, 0.5));
-    letter-spacing: -0.5px
+    font-family: 'Caveat', cursive;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.5px
 }
 
 .puzzle-badge {
@@ -102,66 +159,66 @@ body {
 }
 
 .puzzle-label {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text2)
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-light)
 }
 
 .difficulty-badge {
-    padding: 3px 10px;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    border-radius: 20px;
-    background: var(--success-l);
-    color: var(--success)
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: lowercase;
+    border-radius: 3px;
+    background: var(--paper-white);
+    color: var(--success);
+    border: 1px solid var(--success-light);
+    box-shadow: var(--shadow-paper)
 }
 
 .difficulty-badge.medium {
-    background: var(--warn-l);
-    color: #b45309
+    color: var(--warn);
+    border-color: var(--warn-light)
 }
 
 .difficulty-badge.hard {
-    background: var(--danger-l);
-    color: var(--danger)
+    color: var(--danger);
+    border-color: #e8a8a4
 }
 
 .top-controls {
     display: flex;
-    gap: 8px
+    gap: 6px
 }
 
 .icon-btn {
-    width: 44px;
-    height: 44px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: var(--r-sm);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: var(--paper-white);
+    color: var(--text-muted);
     font-size: 16px;
-    color: var(--text2);
     cursor: pointer;
-    transition: all .2s;
     display: flex;
     align-items: center;
-    justify-content: center
+    justify-content: center;
+    box-shadow: var(--shadow-paper);
+    transition: all 0.2s
 }
 
 .icon-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lifted);
     color: var(--text)
 }
 
 .streak-label {
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 500;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.5px
-}
-
-.icon-btn:hover {
-    background: var(--border)
+    color: var(--text-muted);
+    text-transform: lowercase;
+    letter-spacing: 0.3px
 }
 
 #soundToggle .sound-off {
@@ -248,24 +305,41 @@ body {
 }
 
 .color-label {
-    font-size: 13px;
+    font-family: 'Caveat', cursive;
+    font-size: 18px;
     font-weight: 600;
-    text-transform: uppercase;
     letter-spacing: .5px;
-    color: var(--muted)
+    color: var(--text-light)
 }
 
+/* Paper circle swatches */
 .color-swatch {
-    width: 95px;
-    height: 95px;
-    border-radius: 22px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-    transition: transform .3s, box-shadow .4s
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    box-shadow:
+        var(--shadow-curl),
+        inset 0 2px 4px rgba(255, 255, 255, 0.2);
+    transition: transform .25s, box-shadow .3s;
+    border: 2px solid var(--cream-dark);
+    position: relative
+}
+
+.color-swatch::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    right: -3px;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, transparent 50%, rgba(74, 55, 40, 0.08) 50%);
+    border-radius: 0 0 50% 0;
+    pointer-events: none
 }
 
 .color-swatch:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6)
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lifted)
 }
 
 .mix-wrapper {
@@ -274,24 +348,23 @@ body {
 
 .difference-ring {
     position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    border-radius: 21px;
-    border: 4px solid var(--danger);
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border-radius: 50%;
+    border: 3px dashed var(--danger);
     transition: all .4s;
     pointer-events: none
 }
 
 .difference-ring.close {
     border-color: var(--success);
-    box-shadow: 0 0 16px rgba(16, 185, 129, .4)
+    border-style: solid
 }
 
 .difference-ring.medium {
-    border-color: var(--warn);
-    box-shadow: 0 0 12px rgba(245, 158, 11, .3)
+    border-color: var(--warn)
 }
 
 .mix-swatch {
@@ -466,14 +539,88 @@ body {
     margin-bottom: 16px
 }
 
+.source-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px
+}
+
 .section-label {
-    display: block;
-    text-align: center;
     font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
+    color: var(--muted)
+}
+
+.hint-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 12px;
+    background: rgba(255, 193, 7, 0.15);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffc107;
+    cursor: pointer;
+    transition: all 0.2s
+}
+
+.hint-btn:hover:not(:disabled) {
+    background: rgba(255, 193, 7, 0.25);
+    transform: scale(1.05)
+}
+
+.hint-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed
+}
+
+.hint-icon {
+    font-size: 14px
+}
+
+.hint-count {
+    font-size: 11px;
+    opacity: 0.8
+}
+
+.hint-display {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+    padding: 8px;
+    margin-bottom: 8px;
+    border-radius: var(--r-sm);
+    display: none
+}
+
+.hint-display.show {
+    display: block;
+    background: rgba(129, 140, 248, 0.1);
+    border: 1px solid rgba(129, 140, 248, 0.2);
+    animation: fadeIn 0.3s
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hidden match value */
+.match-value.hidden {
     color: var(--muted);
-    margin-bottom: 12px
+    opacity: 0.7
 }
 
 .source-colors {
@@ -484,50 +631,36 @@ body {
 }
 
 .source-blob {
-    width: 58px;
-    height: 58px;
+    width: 54px;
+    height: 54px;
     border-radius: 50%;
     cursor: grab;
-    box-shadow:
-        0 4px 20px rgba(0, 0, 0, 0.4),
-        0 0 30px rgba(255, 255, 255, 0.05),
-        inset 0 2px 4px rgba(255, 255, 255, 0.2);
-    transition: all .25s cubic-bezier(.34, 1.56, .64, 1);
+    box-shadow: var(--shadow-curl);
+    transition: all .2s ease;
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    animation: breathe 4s ease-in-out infinite
+    border: 2px solid var(--cream-dark)
 }
 
-.source-blob:nth-child(1) {
-    animation-delay: 0s;
+.source-blob::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    pointer-events: none
 }
 
-.source-blob:nth-child(2) {
-    animation-delay: 0.8s;
+.source-blob:hover {
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: var(--shadow-lifted)
 }
 
-.source-blob:nth-child(3) {
-    animation-delay: 1.6s;
-}
-
-.source-blob:nth-child(4) {
-    animation-delay: 2.4s;
-}
-
-.source-blob:nth-child(5) {
-    animation-delay: 3.2s;
-}
-
-@keyframes breathe {
-
-    0%,
-    100% {
-        transform: scale(1) translateY(0);
-    }
-
-    50% {
-        transform: scale(1.03) translateY(-3px);
-    }
+.source-blob:active {
+    transform: scale(0.95);
+    cursor: grabbing
 }
 
 .source-blob::after {
@@ -565,6 +698,57 @@ body {
     cursor: not-allowed;
     pointer-events: none;
     animation: none
+}
+
+/* Hint-recommended source blob styling */
+.source-blob.hint-recommended {
+    animation: hintPulse 1.2s ease-in-out infinite !important;
+    box-shadow:
+        0 0 20px rgba(255, 215, 0, 0.8),
+        0 0 40px rgba(255, 215, 0, 0.4),
+        var(--shadow-lifted) !important;
+    z-index: 10;
+    position: relative;
+}
+
+.source-blob.hint-recommended::after {
+    content: '👆';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    animation: hintBounce 1s ease-in-out infinite;
+}
+
+@keyframes hintPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow:
+            0 0 15px rgba(255, 215, 0, 0.6),
+            0 0 30px rgba(255, 215, 0, 0.3);
+    }
+
+    50% {
+        transform: scale(1.12);
+        box-shadow:
+            0 0 25px rgba(255, 215, 0, 0.9),
+            0 0 50px rgba(255, 215, 0, 0.5);
+    }
+}
+
+@keyframes hintBounce {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-8px);
+    }
 }
 
 .drag-ghost {
@@ -608,55 +792,30 @@ body {
 }
 
 .btn-secondary {
-    background: rgba(255, 255, 255, 0.08);
-    color: var(--text2);
-    border: 1px solid var(--border-glass)
+    background: var(--paper-white);
+    color: var(--text-light);
+    border: 1px solid var(--cream-dark);
+    box-shadow: var(--shadow-paper)
 }
 
 .btn-secondary:hover:not(:disabled) {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.2)
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lifted);
+    background: var(--cream)
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a78bfa 100%);
-    color: #fff;
-    box-shadow:
-        0 4px 20px rgba(99, 102, 241, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1)
-}
-
-.btn-primary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    animation: shimmer 3s infinite
-}
-
-@keyframes shimmer {
-    0% {
-        left: -100%;
-    }
-
-    100% {
-        left: 100%;
-    }
+    background: var(--accent);
+    color: var(--paper-white);
+    box-shadow: var(--shadow-paper);
+    border: none;
+    position: relative
 }
 
 .btn-primary:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow:
-        0 8px 30px rgba(99, 102, 241, 0.5),
-        0 0 40px rgba(129, 140, 248, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.25)
+    box-shadow: var(--shadow-lifted);
+    background: var(--accent-light)
 }
 
 .btn-primary.highlight {
@@ -819,11 +978,11 @@ body {
     color: var(--text2)
 }
 
-/* Results Modal */
+/* Results Modal - Cozy Paper Craft */
 .results-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(5, 5, 10, 0.95);
+    background: rgba(139, 115, 85, 0.85);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -840,16 +999,17 @@ body {
 }
 
 .results-modal {
-    background: linear-gradient(180deg, #1e1e2a 0%, #161622 100%);
+    background: var(--cream);
     padding: 28px;
-    border-radius: var(--r-xl);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    border: none;
     text-align: center;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    box-shadow: var(--shadow-lifted);
     transform: scale(.9) translateY(20px);
     transition: transform .4s cubic-bezier(.34, 1.56, .64, 1);
     max-width: 360px;
-    width: 100%
+    width: 100%;
+    position: relative
 }
 
 .results-overlay.show .results-modal {

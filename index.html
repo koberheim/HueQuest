@@ -10,17 +10,18 @@
 
     <!-- PWA Meta Tags -->
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#6366f1">
+    <meta name="theme-color" content="#c4a77d">
 
     <!-- iOS/iPad Specific -->
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="HueQuest">
     <link rel="apple-touch-icon" href="icon-192.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Patrick+Hand&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
     <!-- Service Worker Registration -->
@@ -63,13 +64,7 @@
             <span class="session-stats" id="sessionStats">0 Perfect Matches</span>
         </div>
 
-        <!-- Phase Indicator -->
-        <div class="phase-indicator" id="phaseIndicator">
-            <div class="phase-tag draft" id="phaseTag">
-                <span class="phase-icon">🎨</span>
-                <span class="phase-text">Draft Mode</span>
-            </div>
-        </div>
+
 
         <!-- Main Game Area -->
         <div class="game-area">
@@ -111,7 +106,15 @@
 
         <!-- Source Colors -->
         <div class="source-section">
-            <span class="section-label">Drag colors to mix</span>
+            <div class="source-header">
+                <span class="section-label">Drag colors to mix</span>
+                <button class="hint-btn" id="hintBtn" title="Get a hint">
+                    <span class="hint-icon">💡</span>
+                    <span class="hint-text">Hint</span>
+                    <span class="hint-count" id="hintCount">(1)</span>
+                </button>
+            </div>
+            <div class="hint-display" id="hintDisplay"></div>
             <div class="source-colors" id="sourceColors"></div>
         </div>
 
@@ -121,7 +124,7 @@
                 <span class="btn-icon">↩</span> Undo
             </button>
             <button class="btn btn-primary" id="commitBtn">
-                <span class="btn-icon">✓</span> Commit Result
+                <span class="btn-icon">✓</span> Lock It In!
             </button>
         </div>
 
