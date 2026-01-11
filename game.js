@@ -17,139 +17,233 @@
 
 const PUZZLES = [
     // ========== EASY PUZZLES (33) ==========
-    { name: "Sky Blue", difficulty: "easy", target: [140, 200, 230], sources: [[142, 210, 245], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Peach", difficulty: "easy", target: [245, 205, 175], sources: [[253, 210, 178], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 6 },
-    { name: "Lavender", difficulty: "easy", target: [210, 180, 220], sources: [[237, 197, 251], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Mint", difficulty: "easy", target: [150, 225, 160], sources: [[153, 239, 165], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Coral", difficulty: "easy", target: [240, 130, 105], sources: [[247, 130, 103], [255, 0, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 6 },
-    { name: "Butter", difficulty: "easy", target: [248, 225, 145], sources: [[252, 228, 146], [255, 0, 0], [0, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 7 },
-    { name: "Baby Blue", difficulty: "easy", target: [170, 200, 225], sources: [[176, 210, 239], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Salmon", difficulty: "easy", target: [245, 145, 135], sources: [[253, 146, 135], [255, 0, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 6 },
-    { name: "Lime", difficulty: "easy", target: [135, 210, 105], sources: [[137, 237, 97], [0, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Blush", difficulty: "easy", target: [248, 185, 195], sources: [[252, 187, 197], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 7 },
-    { name: "Cream", difficulty: "easy", target: [248, 240, 205], sources: [[252, 244, 207], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 7 },
-    { name: "Powder Blue", difficulty: "easy", target: [175, 200, 220], sources: [[191, 224, 251], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Apricot", difficulty: "easy", target: [245, 190, 165], sources: [[253, 194, 167], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 6 },
-    { name: "Thistle", difficulty: "easy", target: [205, 180, 210], sources: [[231, 197, 237], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Cotton Candy", difficulty: "easy", target: [248, 190, 205], sources: [[252, 192, 207], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 7 },
-    { name: "Honeydew", difficulty: "easy", target: [205, 240, 205], sources: [[210, 247, 210], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 6 },
-    { name: "Champagne", difficulty: "easy", target: [240, 220, 195], sources: [[247, 226, 199], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 6 },
-    { name: "Seafoam", difficulty: "easy", target: [155, 220, 185], sources: [[164, 251, 204], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Rose", difficulty: "easy", target: [245, 180, 185], sources: [[253, 183, 189], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 6 },
-    { name: "Periwinkle", difficulty: "easy", target: [180, 180, 235], sources: [[187, 187, 250], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Wheat", difficulty: "easy", target: [240, 220, 180], sources: [[247, 226, 183], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 6 },
-    { name: "Aqua Light", difficulty: "easy", target: [135, 215, 215], sources: [[137, 244, 244], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Mauve Light", difficulty: "easy", target: [215, 170, 200], sources: [[244, 184, 224], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Sage", difficulty: "easy", target: [180, 200, 155], sources: [[197, 224, 164], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Dusty Blue", difficulty: "easy", target: [145, 175, 200], sources: [[151, 191, 224], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Soft Yellow", difficulty: "easy", target: [248, 238, 165], sources: [[252, 242, 166], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 7 },
-    { name: "Lilac", difficulty: "easy", target: [200, 175, 215], sources: [[224, 191, 244], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Melon", difficulty: "easy", target: [245, 190, 165], sources: [[253, 194, 167], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 6 },
-    { name: "Pearl", difficulty: "easy", target: [225, 225, 225], sources: [[239, 239, 239], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Sand", difficulty: "easy", target: [215, 200, 170], sources: [[244, 224, 184], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Cloud", difficulty: "easy", target: [225, 230, 240], sources: [[231, 237, 247], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 6 },
-    { name: "Wisteria", difficulty: "easy", target: [200, 175, 215], sources: [[224, 191, 244], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Spring Green", difficulty: "easy", target: [145, 225, 145], sources: [[147, 239, 147], [0, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
+    // 4-5 step solutions - easier targets, primaries + white/black
+    { name: "Violet", difficulty: "easy", target: [216, 8, 216], sources: [[255, 255, 255], [0, 0, 0], [255, 0, 255], [255, 255, 0]], mixLimit: 6, solutionPath: [2, 1, 2, 2] },
+    { name: "Pearl", difficulty: "easy", target: [248, 248, 232], sources: [[255, 255, 255], [0, 0, 0], [0, 255, 0], [255, 255, 0]], mixLimit: 6, solutionPath: [3, 0, 0, 0] },
+    { name: "Shadow", difficulty: "easy", target: [52, 52, 52], sources: [[255, 255, 255], [0, 0, 0], [0, 0, 255], [0, 255, 0]], mixLimit: 7, solutionPath: [1, 0, 0, 1, 1] },
+    { name: "Mixed", difficulty: "easy", target: [228, 116, 244], sources: [[255, 255, 255], [0, 0, 0], [255, 0, 255], [0, 255, 255]], mixLimit: 7, solutionPath: [1, 3, 0, 0, 2] },
+    { name: "Crimson", difficulty: "easy", target: [248, 136, 184], sources: [[255, 255, 255], [0, 0, 0], [255, 0, 0], [255, 0, 255]], mixLimit: 6, solutionPath: [3, 3, 2, 0] },
+    { name: "Amber", difficulty: "easy", target: [216, 216, 72], sources: [[255, 255, 255], [0, 0, 0], [255, 255, 0], [0, 255, 255]], mixLimit: 6, solutionPath: [2, 1, 0, 2] },
+    { name: "Emerald", difficulty: "easy", target: [12, 228, 4], sources: [[255, 255, 255], [0, 0, 0], [0, 255, 0], [255, 0, 0]], mixLimit: 7, solutionPath: [3, 1, 2, 2, 2] },
+    { name: "Mixed 2", difficulty: "easy", target: [220, 132, 220], sources: [[255, 255, 255], [0, 0, 0], [255, 0, 255], [0, 255, 0]], mixLimit: 7, solutionPath: [2, 2, 1, 2, 0] },
+    { name: "Forest", difficulty: "easy", target: [8, 120, 8], sources: [[255, 255, 255], [0, 0, 0], [0, 255, 0], [255, 0, 0]], mixLimit: 6, solutionPath: [2, 2, 2, 1] },
+    { name: "Slate", difficulty: "easy", target: [124, 124, 76], sources: [[255, 255, 255], [0, 0, 0], [0, 255, 255], [255, 255, 0]], mixLimit: 7, solutionPath: [0, 3, 3, 0, 1] },
+    { name: "Teal", difficulty: "easy", target: [24, 248, 216], sources: [[255, 255, 255], [0, 0, 0], [0, 255, 0], [0, 255, 255]], mixLimit: 6, solutionPath: [0, 2, 3, 3] },
+    { name: "Sapphire", difficulty: "easy", target: [76, 76, 204], sources: [[255, 255, 255], [0, 0, 0], [0, 255, 255], [0, 0, 255]], mixLimit: 7, solutionPath: [0, 1, 1, 0, 3] },
+    { name: "Slate 2", difficulty: "easy", target: [124, 92, 92], sources: [[255, 255, 255], [0, 0, 0], [255, 255, 0], [255, 0, 0]], mixLimit: 7, solutionPath: [0, 0, 3, 0, 1] },
+    { name: "Emerald 2", difficulty: "easy", target: [108, 236, 108], sources: [[255, 255, 255], [0, 0, 0], [255, 0, 0], [0, 255, 0]], mixLimit: 7, solutionPath: [0, 1, 0, 0, 3] },
+    { name: "Sapphire 2", difficulty: "easy", target: [156, 156, 236], sources: [[255, 255, 255], [0, 0, 0], [0, 0, 255], [255, 255, 0]], mixLimit: 7, solutionPath: [0, 3, 2, 2, 0] },
+    { name: "Mixed 3", difficulty: "easy", target: [200, 200, 8], sources: [[255, 255, 255], [0, 0, 0], [255, 255, 0], [0, 255, 255]], mixLimit: 6, solutionPath: [1, 1, 2, 2] },
+    { name: "Maroon", difficulty: "easy", target: [52, 20, 20], sources: [[255, 255, 255], [0, 0, 0], [255, 0, 0], [0, 255, 0]], mixLimit: 7, solutionPath: [1, 0, 2, 1, 1] },
+    { name: "Sapphire 3", difficulty: "easy", target: [156, 156, 244], sources: [[255, 255, 255], [0, 0, 0], [255, 255, 0], [0, 0, 255]], mixLimit: 7, solutionPath: [2, 0, 3, 3, 0] },
+    { name: "Maroon 2", difficulty: "easy", target: [52, 4, 4], sources: [[255, 255, 255], [0, 0, 0], [0, 255, 0], [255, 0, 0]], mixLimit: 7, solutionPath: [1, 3, 3, 1, 1] },
+    { name: "Sapphire 4", difficulty: "easy", target: [24, 24, 248], sources: [[255, 255, 255], [0, 0, 0], [0, 0, 255], [0, 255, 0]], mixLimit: 6, solutionPath: [0, 2, 2, 2] },
+    { name: "Silver", difficulty: "easy", target: [152, 152, 152], sources: [[255, 255, 255], [0, 0, 0], [255, 0, 255], [0, 255, 255]], mixLimit: 6, solutionPath: [0, 1, 1, 0] },
+    { name: "Slate 3", difficulty: "easy", target: [124, 124, 108], sources: [[255, 255, 255], [0, 0, 0], [255, 0, 255], [255, 255, 0]], mixLimit: 7, solutionPath: [0, 3, 0, 0, 1] },
+    { name: "Silver 2", difficulty: "easy", target: [168, 184, 168], sources: [[255, 255, 255], [0, 0, 0], [255, 0, 0], [0, 255, 0]], mixLimit: 6, solutionPath: [3, 0, 1, 0] },
+    { name: "Mixed 4", difficulty: "easy", target: [184, 184, 104], sources: [[255, 255, 255], [0, 0, 0], [255, 255, 0], [0, 0, 255]], mixLimit: 6, solutionPath: [2, 0, 3, 2] },
+    { name: "Amber 2", difficulty: "easy", target: [204, 204, 92], sources: [[255, 255, 255], [0, 0, 0], [255, 255, 0], [0, 0, 255]], mixLimit: 7, solutionPath: [0, 3, 1, 0, 2] },
+    { name: "Violet 2", difficulty: "easy", target: [216, 88, 200], sources: [[255, 255, 255], [0, 0, 0], [255, 255, 0], [255, 0, 255]], mixLimit: 6, solutionPath: [2, 1, 0, 3] },
+    { name: "Emerald 3", difficulty: "easy", target: [184, 248, 88], sources: [[255, 255, 255], [0, 0, 0], [0, 255, 255], [255, 255, 0]], mixLimit: 6, solutionPath: [0, 3, 2, 3] },
+    { name: "Charcoal", difficulty: "easy", target: [84, 92, 84], sources: [[255, 255, 255], [0, 0, 0], [255, 0, 255], [0, 255, 0]], mixLimit: 7, solutionPath: [3, 0, 1, 0, 1] },
+    { name: "Shadow 2", difficulty: "easy", target: [24, 56, 56], sources: [[255, 255, 255], [0, 0, 0], [0, 255, 255], [255, 0, 255]], mixLimit: 6, solutionPath: [0, 2, 1, 1] },
+    { name: "Cream", difficulty: "easy", target: [120, 248, 248], sources: [[255, 255, 255], [0, 0, 0], [0, 255, 255], [255, 0, 255]], mixLimit: 6, solutionPath: [0, 0, 0, 2] },
+    { name: "Blush", difficulty: "easy", target: [236, 188, 188], sources: [[255, 255, 255], [0, 0, 0], [0, 255, 255], [255, 0, 0]], mixLimit: 7, solutionPath: [0, 2, 0, 3, 0] },
+    { name: "Forest 2", difficulty: "easy", target: [8, 120, 40], sources: [[255, 255, 255], [0, 0, 0], [0, 255, 255], [0, 255, 0]], mixLimit: 6, solutionPath: [3, 2, 3, 1] },
+    { name: "Mixed 5", difficulty: "easy", target: [124, 116, 52], sources: [[255, 255, 255], [0, 0, 0], [255, 0, 0], [255, 255, 0]], mixLimit: 7, solutionPath: [2, 0, 0, 3, 1] },
 
     // ========== MEDIUM PUZZLES (34) ==========
-    { name: "Teal", difficulty: "medium", target: [65, 160, 160], sources: [[2, 192, 192], [0, 255, 255], [0, 255, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Terracotta", difficulty: "medium", target: [200, 100, 80], sources: [[224, 91, 64], [255, 0, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Olive", difficulty: "medium", target: [140, 150, 75], sources: [[152, 172, 22], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Plum", difficulty: "medium", target: [170, 100, 155], sources: [[212, 72, 182], [255, 0, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Rust", difficulty: "medium", target: [195, 95, 65], sources: [[217, 84, 44], [255, 0, 0], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Moss", difficulty: "medium", target: [130, 160, 95], sources: [[132, 192, 62], [0, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Burgundy", difficulty: "medium", target: [155, 55, 80], sources: [[164, 31, 64], [255, 0, 0], [255, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Steel", difficulty: "medium", target: [100, 130, 155], sources: [[72, 132, 182], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Copper", difficulty: "medium", target: [195, 120, 75], sources: [[217, 117, 57], [255, 0, 0], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Slate", difficulty: "medium", target: [110, 125, 140], sources: [[92, 122, 152], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Brick", difficulty: "medium", target: [195, 80, 80], sources: [[217, 64, 64], [255, 0, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Fern", difficulty: "medium", target: [95, 155, 85], sources: [[62, 182, 42], [0, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Wine", difficulty: "medium", target: [150, 65, 80], sources: [[172, 2, 32], [255, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Honey", difficulty: "medium", target: [230, 175, 80], sources: [[245, 182, 73], [255, 0, 0], [0, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Denim", difficulty: "medium", target: [85, 125, 180], sources: [[42, 122, 232], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Cinnamon", difficulty: "medium", target: [195, 115, 60], sources: [[217, 111, 37], [255, 0, 0], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Jade", difficulty: "medium", target: [85, 175, 125], sources: [[42, 222, 122], [0, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Auburn", difficulty: "medium", target: [175, 75, 65], sources: [[222, 22, 2], [255, 0, 0], [255, 0, 255], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Khaki", difficulty: "medium", target: [185, 170, 135], sources: [[242, 212, 142], [255, 0, 0], [0, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Pumpkin", difficulty: "medium", target: [245, 135, 70], sources: [[253, 135, 66], [255, 0, 0], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 6 },
-    { name: "Ocean", difficulty: "medium", target: [75, 145, 180], sources: [[22, 162, 232], [0, 255, 255], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Rose Gold", difficulty: "medium", target: [195, 135, 135], sources: [[217, 137, 137], [255, 0, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Bronze", difficulty: "medium", target: [185, 135, 75], sources: [[242, 142, 22], [255, 0, 0], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Emerald", difficulty: "medium", target: [85, 175, 115], sources: [[42, 222, 102], [0, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Mulberry", difficulty: "medium", target: [185, 90, 140], sources: [[242, 52, 152], [255, 0, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Charcoal", difficulty: "medium", target: [95, 95, 105], sources: [[62, 62, 82], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Mustard", difficulty: "medium", target: [225, 185, 75], sources: [[239, 193, 67], [255, 0, 0], [0, 255, 0], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Violet", difficulty: "medium", target: [150, 85, 175], sources: [[172, 42, 222], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Caramel", difficulty: "medium", target: [225, 165, 85], sources: [[239, 170, 79], [255, 0, 0], [0, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Forest", difficulty: "medium", target: [65, 135, 75], sources: [[2, 142, 22], [0, 255, 255], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Tangerine", difficulty: "medium", target: [245, 145, 75], sources: [[253, 146, 71], [255, 0, 0], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 6 },
-    { name: "Lavender Gray", difficulty: "medium", target: [160, 150, 170], sources: [[192, 172, 212], [255, 0, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Pistachio", difficulty: "medium", target: [160, 195, 125], sources: [[171, 217, 124], [255, 0, 0], [0, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Mauve", difficulty: "medium", target: [180, 135, 160], sources: [[232, 142, 192], [255, 0, 0], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
+    // 5-7 step solutions - more complex color mixing
+    { name: "Navy", difficulty: "medium", target: [18, 14, 114], sources: [[0, 0, 255], [0, 255, 0], [255, 0, 255], [0, 0, 0]], mixLimit: 8, solutionPath: [1, 1, 2, 0, 0, 3] },
+    { name: "Emerald 4", difficulty: "medium", target: [101, 247, 125], sources: [[0, 255, 0], [0, 255, 255], [0, 0, 255], [255, 255, 255]], mixLimit: 9, solutionPath: [0, 3, 2, 1, 3, 3, 0] },
+    { name: "Maroon 3", difficulty: "medium", target: [148, 4, 4], sources: [[0, 255, 0], [255, 0, 0], [0, 0, 255], [0, 0, 0]], mixLimit: 7, solutionPath: [3, 1, 3, 3, 1] },
+    { name: "Maroon 4", difficulty: "medium", target: [106, 18, 98], sources: [[0, 255, 0], [255, 0, 0], [255, 0, 255], [0, 0, 0]], mixLimit: 8, solutionPath: [3, 1, 0, 2, 2, 3] },
+    { name: "Maroon 5", difficulty: "medium", target: [106, 18, 34], sources: [[0, 255, 0], [255, 0, 0], [255, 0, 255], [0, 0, 0]], mixLimit: 8, solutionPath: [3, 1, 0, 2, 1, 3] },
+    { name: "Mixed 6", difficulty: "medium", target: [146, 98, 18], sources: [[0, 255, 0], [255, 0, 255], [255, 0, 0], [0, 0, 0]], mixLimit: 8, solutionPath: [3, 3, 1, 0, 0, 2] },
+    { name: "Forest 3", difficulty: "medium", target: [27, 51, 1], sources: [[255, 0, 0], [0, 255, 0], [255, 255, 0], [0, 0, 0]], mixLimit: 9, solutionPath: [2, 3, 0, 2, 1, 3, 3] },
+    { name: "Crimson 2", difficulty: "medium", target: [222, 2, 134], sources: [[255, 0, 0], [0, 255, 0], [255, 0, 255], [0, 0, 0]], mixLimit: 8, solutionPath: [2, 0, 0, 3, 0, 2] },
+    { name: "Mint", difficulty: "medium", target: [190, 230, 218], sources: [[255, 0, 255], [0, 255, 255], [255, 255, 0], [255, 255, 255]], mixLimit: 8, solutionPath: [2, 0, 0, 2, 1, 3] },
+    { name: "Crimson 3", difficulty: "medium", target: [247, 115, 133], sources: [[255, 0, 255], [255, 255, 0], [0, 255, 255], [0, 0, 0]], mixLimit: 9, solutionPath: [1, 0, 3, 1, 1, 1, 0] },
+    { name: "Sapphire 5", difficulty: "medium", target: [182, 150, 254], sources: [[0, 255, 0], [0, 0, 255], [255, 0, 255], [255, 255, 255]], mixLimit: 8, solutionPath: [3, 1, 3, 2, 1, 3] },
+    { name: "Blush 2", difficulty: "medium", target: [238, 218, 194], sources: [[255, 0, 0], [0, 255, 0], [255, 255, 0], [255, 255, 255]], mixLimit: 8, solutionPath: [0, 2, 1, 0, 3, 3] },
+    { name: "Sapphire 6", difficulty: "medium", target: [148, 148, 236], sources: [[0, 0, 255], [255, 255, 0], [255, 0, 255], [255, 255, 255]], mixLimit: 7, solutionPath: [0, 1, 0, 0, 3] },
+    { name: "Slate 4", difficulty: "medium", target: [124, 124, 132], sources: [[0, 0, 255], [0, 255, 255], [255, 255, 0], [255, 255, 255]], mixLimit: 7, solutionPath: [2, 2, 2, 2, 0] },
+    { name: "Mixed 7", difficulty: "medium", target: [18, 114, 130], sources: [[255, 255, 0], [0, 255, 0], [0, 0, 255], [0, 0, 0]], mixLimit: 8, solutionPath: [3, 3, 0, 1, 1, 2] },
+    { name: "Violet 3", difficulty: "medium", target: [189, 3, 157], sources: [[255, 0, 255], [255, 0, 0], [0, 255, 0], [0, 0, 0]], mixLimit: 9, solutionPath: [2, 0, 0, 0, 1, 3, 0] },
+    { name: "Crimson 4", difficulty: "medium", target: [222, 54, 86], sources: [[255, 0, 0], [0, 255, 0], [255, 0, 255], [255, 255, 255]], mixLimit: 8, solutionPath: [3, 0, 3, 1, 2, 0] },
+    { name: "Amber 3", difficulty: "medium", target: [255, 231, 95], sources: [[255, 255, 0], [0, 0, 255], [255, 0, 255], [255, 255, 255]], mixLimit: 9, solutionPath: [3, 3, 2, 2, 0, 3, 0] },
+    { name: "Crimson 5", difficulty: "medium", target: [190, 82, 18], sources: [[0, 255, 0], [255, 0, 0], [0, 255, 255], [255, 255, 255]], mixLimit: 8, solutionPath: [1, 1, 3, 1, 0, 1] },
+    { name: "Emerald 5", difficulty: "medium", target: [108, 196, 84], sources: [[255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255]], mixLimit: 7, solutionPath: [0, 2, 0, 3, 1] },
+    { name: "Mixed 8", difficulty: "medium", target: [180, 52, 132], sources: [[255, 0, 255], [0, 255, 255], [255, 255, 0], [0, 0, 0]], mixLimit: 7, solutionPath: [3, 2, 2, 3, 0] },
+    { name: "Violet 4", difficulty: "medium", target: [223, 19, 255], sources: [[0, 0, 255], [255, 0, 255], [255, 255, 0], [255, 255, 255]], mixLimit: 9, solutionPath: [3, 1, 1, 3, 0, 1, 1] },
+    { name: "Navy 2", difficulty: "medium", target: [10, 46, 54], sources: [[0, 255, 255], [255, 255, 0], [0, 0, 255], [0, 0, 0]], mixLimit: 8, solutionPath: [0, 1, 2, 0, 3, 3] },
+    { name: "Violet 5", difficulty: "medium", target: [218, 62, 218], sources: [[0, 0, 255], [0, 255, 0], [255, 0, 255], [255, 255, 255]], mixLimit: 8, solutionPath: [1, 3, 3, 1, 2, 2] },
+    { name: "Silver 3", difficulty: "medium", target: [188, 188, 220], sources: [[0, 0, 255], [255, 255, 0], [255, 0, 255], [255, 255, 255]], mixLimit: 7, solutionPath: [3, 3, 1, 0, 3] },
+    { name: "Forest 4", difficulty: "medium", target: [2, 130, 86], sources: [[0, 0, 255], [0, 255, 0], [0, 255, 255], [0, 0, 0]], mixLimit: 8, solutionPath: [0, 3, 0, 3, 0, 1] },
+    { name: "Teal 2", difficulty: "medium", target: [28, 196, 212], sources: [[255, 0, 0], [0, 255, 255], [255, 0, 255], [0, 0, 0]], mixLimit: 7, solutionPath: [0, 2, 3, 1, 1] },
+    { name: "Mixed 9", difficulty: "medium", target: [109, 25, 117], sources: [[255, 0, 255], [0, 255, 255], [255, 255, 0], [0, 0, 0]], mixLimit: 9, solutionPath: [3, 0, 2, 1, 0, 0, 3] },
+    { name: "Crimson 6", difficulty: "medium", target: [191, 77, 13], sources: [[255, 0, 0], [0, 255, 0], [0, 255, 255], [255, 255, 255]], mixLimit: 9, solutionPath: [0, 3, 3, 0, 0, 1, 0] },
+    { name: "Crimson 7", difficulty: "medium", target: [238, 50, 110], sources: [[255, 0, 255], [255, 0, 0], [0, 255, 0], [255, 255, 255]], mixLimit: 8, solutionPath: [0, 0, 2, 3, 0, 1] },
+    { name: "Forest 5", difficulty: "medium", target: [43, 81, 35], sources: [[255, 0, 0], [0, 255, 0], [255, 0, 255], [0, 0, 0]], mixLimit: 9, solutionPath: [2, 3, 0, 1, 2, 1, 3] },
+    { name: "Emerald 6", difficulty: "medium", target: [162, 226, 2], sources: [[0, 255, 0], [255, 0, 255], [255, 255, 0], [0, 0, 0]], mixLimit: 8, solutionPath: [3, 3, 3, 2, 0, 2] },
+    { name: "Blush 3", difficulty: "medium", target: [252, 244, 236], sources: [[255, 255, 0], [0, 0, 255], [255, 0, 255], [255, 255, 255]], mixLimit: 7, solutionPath: [2, 0, 3, 3, 3] },
+    { name: "Sapphire 7", difficulty: "medium", target: [29, 47, 221], sources: [[0, 255, 0], [0, 0, 255], [255, 0, 255], [255, 255, 255]], mixLimit: 9, solutionPath: [0, 3, 3, 2, 0, 1, 1] },
 
     // ========== HARD PUZZLES (33) ==========
-    { name: "Navy", difficulty: "hard", target: [45, 55, 125], sources: [[17, 31, 124], [0, 255, 255], [255, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Crimson", difficulty: "hard", target: [175, 45, 65], sources: [[191, 17, 44], [255, 0, 0], [255, 0, 255], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Indigo", difficulty: "hard", target: [85, 55, 145], sources: [[71, 31, 151], [255, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Maroon", difficulty: "hard", target: [135, 35, 50], sources: [[137, 4, 24], [255, 0, 255], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Sapphire", difficulty: "hard", target: [55, 85, 165], sources: [[31, 71, 177], [0, 255, 255], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Ruby", difficulty: "hard", target: [195, 45, 85], sources: [[217, 17, 71], [255, 0, 0], [255, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Hunter Green", difficulty: "hard", target: [55, 115, 65], sources: [[31, 111, 44], [0, 255, 255], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Midnight", difficulty: "hard", target: [55, 55, 105], sources: [[31, 31, 97], [0, 255, 255], [255, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Oxblood", difficulty: "hard", target: [125, 40, 50], sources: [[124, 11, 24], [255, 0, 255], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Cobalt", difficulty: "hard", target: [55, 85, 170], sources: [[31, 71, 184], [0, 255, 255], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Garnet", difficulty: "hard", target: [145, 60, 65], sources: [[151, 37, 44], [255, 0, 255], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Pine", difficulty: "hard", target: [45, 115, 85], sources: [[17, 111, 71], [0, 255, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Amethyst", difficulty: "hard", target: [145, 95, 175], sources: [[162, 62, 222], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Vermillion", difficulty: "hard", target: [215, 75, 60], sources: [[244, 57, 37], [255, 0, 0], [255, 0, 255], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Mahogany", difficulty: "hard", target: [165, 65, 55], sources: [[177, 44, 31], [255, 0, 0], [255, 0, 255], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Deep Teal", difficulty: "hard", target: [45, 125, 135], sources: [[17, 124, 137], [0, 255, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Scarlet", difficulty: "hard", target: [225, 55, 55], sources: [[239, 45, 45], [255, 0, 0], [255, 0, 255], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Ultramarine", difficulty: "hard", target: [55, 55, 155], sources: [[31, 31, 164], [0, 255, 255], [255, 0, 255], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Sienna", difficulty: "hard", target: [155, 65, 45], sources: [[164, 44, 17], [255, 0, 0], [255, 0, 255], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Prussian", difficulty: "hard", target: [45, 75, 115], sources: [[17, 57, 111], [0, 255, 255], [255, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Carmine", difficulty: "hard", target: [175, 45, 65], sources: [[191, 17, 44], [255, 0, 0], [255, 0, 255], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Viridian", difficulty: "hard", target: [65, 135, 105], sources: [[2, 142, 82], [0, 255, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Byzantium", difficulty: "hard", target: [135, 60, 115], sources: [[137, 37, 111], [255, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Deep Purple", difficulty: "hard", target: [105, 45, 135], sources: [[97, 17, 137], [255, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Sepia", difficulty: "hard", target: [135, 85, 50], sources: [[137, 71, 24], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Dark Cyan", difficulty: "hard", target: [55, 135, 145], sources: [[31, 137, 151], [0, 255, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Deep Rose", difficulty: "hard", target: [185, 65, 105], sources: [[242, 2, 82], [255, 0, 0], [255, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Forest Night", difficulty: "hard", target: [45, 85, 60], sources: [[17, 71, 37], [0, 255, 255], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Dark Azure", difficulty: "hard", target: [55, 95, 155], sources: [[31, 84, 164], [0, 255, 255], [0, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Bordeaux", difficulty: "hard", target: [125, 40, 60], sources: [[124, 11, 37], [255, 0, 255], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Deep Ocean", difficulty: "hard", target: [45, 105, 145], sources: [[17, 97, 151], [0, 255, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Oxblood Rose", difficulty: "hard", target: [145, 55, 75], sources: [[151, 31, 57], [255, 0, 255], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 },
-    { name: "Dark Olive", difficulty: "hard", target: [95, 105, 50], sources: [[84, 97, 24], [255, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 5 }
+    // 7-9 step solutions - challenging multi-step blending
+    { name: "Sapphire 8", difficulty: "hard", target: [160, 160, 250], sources: [[255, 255, 255], [255, 0, 0], [0, 0, 0], [0, 0, 255]], mixLimit: 9, solutionPath: [2, 3, 2, 3, 3, 0, 3, 0] },
+    { name: "Sapphire 9", difficulty: "hard", target: [41, 33, 193], sources: [[255, 0, 0], [255, 255, 0], [0, 0, 0], [0, 0, 255]], mixLimit: 9, solutionPath: [2, 2, 0, 2, 1, 3, 3] },
+    { name: "Crimson 8", difficulty: "hard", target: [255, 145, 11], sources: [[255, 255, 0], [255, 0, 0], [255, 0, 255], [0, 0, 0]], mixLimit: 9, solutionPath: [2, 1, 2, 0, 1, 1, 0] },
+    { name: "Emerald 7", difficulty: "hard", target: [83, 173, 33], sources: [[255, 0, 0], [0, 255, 255], [0, 255, 0], [255, 255, 0]], mixLimit: 9, solutionPath: [2, 0, 2, 2, 0, 1, 0, 2] },
+    { name: "Violet 6", difficulty: "hard", target: [247, 33, 198], sources: [[255, 0, 255], [255, 0, 0], [255, 255, 0], [0, 0, 0]], mixLimit: 9, solutionPath: [2, 1, 0, 0, 3, 1, 2, 0, 0] },
+    { name: "Slate 5", difficulty: "hard", target: [126, 104, 110], sources: [[255, 0, 255], [255, 255, 255], [0, 0, 0], [255, 0, 0]], mixLimit: 9, solutionPath: [0, 0, 2, 0, 1, 3, 1, 1, 2] },
+    { name: "Crimson 9", difficulty: "hard", target: [248, 162, 94], sources: [[255, 255, 0], [255, 0, 255], [0, 0, 255], [0, 255, 0]], mixLimit: 9, solutionPath: [2, 3, 2, 1, 1, 0, 1, 0] },
+    { name: "Mint 2", difficulty: "hard", target: [213, 247, 213], sources: [[0, 0, 0], [255, 0, 255], [255, 255, 255], [0, 255, 0]], mixLimit: 9, solutionPath: [3, 2, 0, 2, 3, 2, 2] },
+    { name: "Forest 6", difficulty: "hard", target: [13, 147, 19], sources: [[0, 255, 255], [0, 0, 0], [0, 255, 0], [255, 0, 0]], mixLimit: 9, solutionPath: [0, 3, 3, 0, 1, 1, 2] },
+    { name: "Sapphire 10", difficulty: "hard", target: [73, 89, 233], sources: [[0, 0, 0], [0, 255, 0], [255, 255, 255], [0, 0, 255]], mixLimit: 9, solutionPath: [0, 0, 2, 1, 3, 2, 3] },
+    { name: "Teal 3", difficulty: "hard", target: [63, 221, 193], sources: [[255, 255, 255], [255, 0, 0], [255, 255, 0], [0, 255, 255]], mixLimit: 9, solutionPath: [1, 2, 2, 2, 1, 3, 3] },
+    { name: "Slate 6", difficulty: "hard", target: [97, 99, 107], sources: [[255, 255, 255], [0, 255, 255], [0, 0, 0], [0, 0, 255]], mixLimit: 9, solutionPath: [1, 2, 3, 2, 0, 0, 2] },
+    { name: "Navy 3", difficulty: "hard", target: [33, 1, 201], sources: [[255, 0, 0], [0, 0, 0], [0, 255, 0], [0, 0, 255]], mixLimit: 9, solutionPath: [3, 1, 1, 3, 1, 0, 3, 3] },
+    { name: "Mint 3", difficulty: "hard", target: [243, 251, 225], sources: [[255, 255, 0], [0, 255, 0], [255, 255, 255], [0, 0, 0]], mixLimit: 9, solutionPath: [3, 2, 0, 3, 1, 0, 2, 2, 2] },
+    { name: "Slate 7", difficulty: "hard", target: [159, 134, 150], sources: [[255, 255, 255], [0, 0, 0], [255, 0, 0], [255, 0, 255]], mixLimit: 9, solutionPath: [2, 0, 0, 2, 3, 1, 1, 0] },
+    { name: "Teal 4", difficulty: "hard", target: [43, 243, 255], sources: [[255, 255, 255], [0, 0, 255], [0, 255, 255], [255, 0, 255]], mixLimit: 9, solutionPath: [0, 1, 3, 2, 0, 2, 2] },
+    { name: "Navy 4", difficulty: "hard", target: [9, 55, 127], sources: [[0, 255, 255], [0, 0, 255], [255, 0, 255], [0, 0, 0]], mixLimit: 9, solutionPath: [0, 0, 2, 0, 0, 1, 3] },
+    { name: "Violet 7", difficulty: "hard", target: [239, 17, 221], sources: [[255, 255, 0], [255, 0, 255], [255, 0, 0], [0, 255, 255]], mixLimit: 9, solutionPath: [2, 1, 2, 1, 1, 3, 2, 1, 1] },
+    { name: "Maroon 6", difficulty: "hard", target: [207, 3, 16], sources: [[255, 0, 255], [255, 255, 255], [0, 0, 0], [255, 0, 0]], mixLimit: 9, solutionPath: [0, 1, 0, 0, 2, 2, 3, 3] },
+    { name: "Emerald 8", difficulty: "hard", target: [29, 193, 29], sources: [[0, 255, 0], [255, 0, 255], [0, 0, 0], [255, 255, 255]], mixLimit: 9, solutionPath: [2, 1, 1, 1, 2, 0, 0] },
+    { name: "Sapphire 11", difficulty: "hard", target: [3, 162, 234], sources: [[255, 255, 255], [0, 0, 0], [0, 0, 255], [0, 255, 255]], mixLimit: 9, solutionPath: [1, 1, 0, 1, 2, 1, 3, 2, 3] },
+    { name: "Mixed 10", difficulty: "hard", target: [203, 129, 203], sources: [[255, 255, 255], [255, 0, 255], [0, 255, 255], [0, 0, 0]], mixLimit: 9, solutionPath: [1, 3, 1, 3, 3, 1, 0] },
+    { name: "Violet 8", difficulty: "hard", target: [209, 17, 255], sources: [[255, 0, 255], [0, 255, 0], [255, 255, 255], [0, 0, 255]], mixLimit: 9, solutionPath: [3, 3, 3, 2, 3, 0, 0] },
+    { name: "Teal 5", difficulty: "hard", target: [43, 235, 215], sources: [[0, 0, 255], [255, 255, 255], [0, 255, 255], [255, 255, 0]], mixLimit: 9, solutionPath: [0, 2, 1, 0, 3, 0, 3, 2, 2] },
+    { name: "Teal 6", difficulty: "hard", target: [73, 211, 211], sources: [[0, 0, 0], [255, 255, 255], [255, 0, 0], [0, 255, 255]], mixLimit: 9, solutionPath: [3, 0, 2, 3, 0, 1, 3] },
+    { name: "Violet 9", difficulty: "hard", target: [254, 23, 236], sources: [[255, 255, 255], [0, 0, 0], [255, 255, 0], [255, 0, 255]], mixLimit: 9, solutionPath: [1, 1, 2, 0, 3, 2, 3, 3, 3] },
+    { name: "Sapphire 12", difficulty: "hard", target: [68, 4, 235], sources: [[0, 0, 0], [255, 255, 255], [255, 0, 255], [0, 0, 255]], mixLimit: 9, solutionPath: [2, 1, 1, 0, 3, 0, 3, 2, 3] },
+    { name: "Crimson 10", difficulty: "hard", target: [233, 169, 170], sources: [[255, 255, 255], [255, 0, 255], [0, 0, 0], [255, 0, 0]], mixLimit: 9, solutionPath: [0, 1, 2, 2, 0, 2, 0, 3, 0] },
+    { name: "Mixed 11", difficulty: "hard", target: [223, 143, 213], sources: [[255, 255, 0], [0, 0, 0], [255, 0, 255], [255, 255, 255]], mixLimit: 9, solutionPath: [3, 0, 3, 0, 2, 1, 2, 3] },
+    { name: "Maroon 7", difficulty: "hard", target: [185, 2, 1], sources: [[255, 255, 255], [0, 0, 0], [255, 0, 0], [0, 255, 0]], mixLimit: 9, solutionPath: [0, 3, 1, 1, 2, 2, 2, 1, 2] },
+    { name: "Sapphire 13", difficulty: "hard", target: [127, 139, 245], sources: [[0, 0, 255], [0, 255, 255], [255, 255, 0], [255, 0, 255]], mixLimit: 9, solutionPath: [3, 1, 2, 3, 2, 3, 3, 3, 1] },
+    { name: "Mixed 12", difficulty: "hard", target: [163, 125, 180], sources: [[0, 255, 255], [255, 255, 255], [0, 255, 0], [255, 0, 255]], mixLimit: 9, solutionPath: [0, 3, 3, 2, 2, 0, 1, 2, 3] },
+    { name: "Violet 10", difficulty: "hard", target: [237, 65, 205], sources: [[255, 0, 0], [255, 0, 255], [255, 255, 255], [0, 0, 0]], mixLimit: 9, solutionPath: [3, 1, 1, 3, 0, 2, 1] }
 ];
 
 // ============================================
 // DAILY PUZZLE SYSTEM
 // ============================================
-const EPOCH_DATE = new Date('2024-01-01T00:00:00'); // Starting point for puzzle numbering
+// IMPORTANT: Update this date before launch! Puzzle #1 starts on this date.
+// This date should be set to the actual launch date to ensure puzzle #1 is first.
+const EPOCH_DATE = new Date('2026-01-08T00:00:00'); // Launch date - UPDATE BEFORE LAUNCH
 
-function getDaysSinceEpoch() {
+/**
+ * Get the current date in Eastern Time (EST/EDT)
+ * This ensures all users see the same daily puzzle regardless of their timezone
+ */
+function getEasternDate() {
     const now = new Date();
-    const utcNow = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
-    const utcEpoch = Date.UTC(EPOCH_DATE.getFullYear(), EPOCH_DATE.getMonth(), EPOCH_DATE.getDate());
-    return Math.floor((utcNow - utcEpoch) / (1000 * 60 * 60 * 24));
+    // Convert to Eastern Time using Intl API
+    const eastern = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+    return eastern;
 }
 
+/**
+ * Calculate days since epoch in Eastern Time
+ * This is the core function for daily puzzle rotation
+ */
+function getDaysSinceEpoch() {
+    const eastern = getEasternDate();
+    const easternMidnight = new Date(eastern.getFullYear(), eastern.getMonth(), eastern.getDate());
+    const epochMidnight = new Date(EPOCH_DATE.getFullYear(), EPOCH_DATE.getMonth(), EPOCH_DATE.getDate());
+    return Math.floor((easternMidnight - epochMidnight) / (1000 * 60 * 60 * 24));
+}
+
+/**
+ * Get the index into the PUZZLES array for today's puzzle
+ * Uses crossword-style difficulty rotation:
+ * - Monday/Tuesday: Easy puzzles (indices 0-32)
+ * - Wednesday/Thursday: Medium puzzles (indices 33-66)
+ * - Friday/Saturday/Sunday: Hard puzzles (indices 67-99)
+ */
 function getDailyPuzzleIndex() {
     const days = getDaysSinceEpoch();
-    return days % PUZZLES.length;
+    // Handle negative days (before launch) gracefully
+    if (days < 0) return 0;
+
+    const eastern = getEasternDate();
+    const dayOfWeek = eastern.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+
+    // Puzzle pool ranges
+    const EASY_START = 0, EASY_COUNT = 33;      // indices 0-32
+    const MEDIUM_START = 33, MEDIUM_COUNT = 34; // indices 33-66
+    const HARD_START = 67, HARD_COUNT = 33;     // indices 67-99
+
+    // Determine which difficulty pool to use based on day of week
+    let poolStart, poolCount;
+    if (dayOfWeek === 1 || dayOfWeek === 2) {
+        // Monday, Tuesday → Easy
+        poolStart = EASY_START;
+        poolCount = EASY_COUNT;
+    } else if (dayOfWeek === 3 || dayOfWeek === 4) {
+        // Wednesday, Thursday → Medium
+        poolStart = MEDIUM_START;
+        poolCount = MEDIUM_COUNT;
+    } else {
+        // Friday, Saturday, Sunday → Hard
+        poolStart = HARD_START;
+        poolCount = HARD_COUNT;
+    }
+
+    // Cycle within the difficulty pool using days since epoch
+    return poolStart + (days % poolCount);
 }
 
+/**
+ * Get the puzzle number for display (1-indexed, cycles 1 to PUZZLES.length)
+ * This is what users see - Puzzle #1, #2, ... #100, #1, #2, ...
+ */
 function getDailyPuzzleNumber() {
-    return getDaysSinceEpoch() + 1; // Puzzle #1 starts on epoch date
+    const days = getDaysSinceEpoch();
+    if (days < 0) return 1; // Before launch, show puzzle #1
+    return (days % PUZZLES.length) + 1;
 }
 
+/**
+ * Get puzzle number for a specific puzzle index (1-indexed)
+ */
+function getPuzzleNumberForIndex(index) {
+    return index + 1;
+}
+
+/**
+ * Get puzzle index from puzzle number (0-indexed)
+ */
+function getPuzzleIndexFromNumber(puzzleNumber) {
+    return puzzleNumber - 1;
+}
+
+/**
+ * Calculate milliseconds until midnight Eastern Time
+ */
 function getNextPuzzleTime() {
     const now = new Date();
-    const tomorrow = new Date(now);
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    tomorrow.setHours(0, 0, 0, 0);
-    return tomorrow - now;
+    // Get current Eastern time
+    const easternNow = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+
+    // Calculate midnight Eastern tomorrow
+    const easternMidnight = new Date(easternNow);
+    easternMidnight.setDate(easternMidnight.getDate() + 1);
+    easternMidnight.setHours(0, 0, 0, 0);
+
+    // Convert back to local time for accurate countdown
+    // We need to know when midnight ET is in the user's local time
+    const year = easternMidnight.getFullYear();
+    const month = easternMidnight.getMonth();
+    const day = easternMidnight.getDate();
+
+    // Create the target time (midnight ET) - approximate by adding offset
+    const isDST = easternNow.getTimezoneOffset() < now.getTimezoneOffset();
+    const etOffset = isDST ? 4 : 5; // EDT = UTC-4, EST = UTC-5
+    const targetUTC = Date.UTC(year, month, day, etOffset, 0, 0, 0);
+
+    return Math.max(0, targetUTC - now.getTime());
 }
 
 function formatCountdown(ms) {
@@ -159,10 +253,34 @@ function formatCountdown(ms) {
     return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 }
 
+/**
+ * Get a unique key for today (in Eastern Time) for localStorage
+ */
 function getTodayKey() {
-    const now = new Date();
-    return `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
+    const eastern = getEasternDate();
+    return `${eastern.getFullYear()}-${eastern.getMonth() + 1}-${eastern.getDate()}`;
 }
+
+/**
+ * Check if a puzzle number is within the free archive window (last 7 days)
+ */
+function isPuzzleFree(puzzleNumber) {
+    const today = getDailyPuzzleNumber();
+    const daysAgo = today - puzzleNumber;
+    // Handle wrap-around: if today is #3 and puzzle is #99, that's 4 days ago (not -96)
+    const adjustedDaysAgo = daysAgo < 0 ? daysAgo + PUZZLES.length : daysAgo;
+    return adjustedDaysAgo >= 0 && adjustedDaysAgo <= 7;
+}
+
+/**
+ * Check if a puzzle has been released yet
+ */
+function isPuzzleReleased(puzzleNumber) {
+    const days = getDaysSinceEpoch();
+    // Puzzle numbers 1 to (days+1) have been released
+    return puzzleNumber <= (days % PUZZLES.length) + 1 || days >= PUZZLES.length;
+}
+
 
 // ============================================
 // ANALYTICS SYSTEM
@@ -396,9 +514,19 @@ function getCozyTitle(matchPercent) {
 // Session stats (persisted to localStorage if available)
 let sessionStats = { perfectCount: 0, bestTier: null, puzzlesPlayed: 0 };
 
-// Streak & Personal Bests (NEW)
-let streakData = { count: 0, lastPlayDate: null };
+// Streak & Personal Bests
+let streakData = { count: 0, maxStreak: 0, lastPlayDate: null };
 let personalBests = {}; // { puzzleIndex: bestScore }
+
+// Enhanced player stats for stats screen
+let playerStats = {
+    totalPuzzlesPlayed: 0,
+    bestMatch: 0,
+    matchSum: 0,  // For calculating average
+    bestEfficiency: null, // { puzzleNumber, mixesUsed, mixLimit, score }
+    tierCounts: { perfect: 0, professional: 0, good: 0, training: 0 },
+    completedPuzzles: {} // { puzzleNumber: { score, tier, mixes, mixLimit, date } }
+};
 
 // Daily puzzle state
 let dailyCompleted = {}; // { "YYYY-M-D": true }
@@ -638,7 +766,10 @@ function deltaE(rgb1, rgb2) {
 const matchPct = (c1, c2) => {
     const de = deltaE(c1, c2);
     // Scale: deltaE 0 = 100%, deltaE 30+ = 0%
-    return Math.round(Math.max(0, Math.min(100, 100 - (de * 100 / 30))));
+    let pct = Math.round(Math.max(0, Math.min(100, 100 - (de * 100 / 30))));
+    // Round 99% up to 100% to handle floating-point precision in solution paths
+    if (pct >= 99) pct = 100;
+    return pct;
 };
 
 function getTier(pct) {
@@ -646,6 +777,87 @@ function getTier(pct) {
     if (pct >= TIERS.professional.min) return TIERS.professional;
     if (pct >= TIERS.good.min) return TIERS.good;
     return TIERS.training;
+}
+
+// ============================================
+// PUZZLE SOLVER (BFS to find optimal solution)
+// ============================================
+/**
+ * Solves a puzzle using BFS to find the shortest sequence of mixes
+ * that achieves the target color (or best possible match within maxMixes).
+ * @param {Object} puzzle - The puzzle object with target and sources
+ * @param {number} maxMixes - Maximum number of mixes to try (default: puzzle.mixLimit)
+ * @returns {Object} { path: [[r,g,b], ...], sourceIndices: [0,1,2...], bestMatch: 98 }
+ */
+function solvePuzzle(puzzle, maxMixes = null) {
+    const target = puzzle.target;
+    const sources = puzzle.sources;
+    const limit = maxMixes || puzzle.mixLimit || 5;
+    const startColor = [128, 128, 128];
+
+    // State: { color: [r,g,b], path: [[r,g,b],...], sourceIndices: [idx,...] }
+    let queue = [{ color: startColor, path: [startColor], sourceIndices: [] }];
+    let bestSolution = { path: [startColor], sourceIndices: [], bestMatch: matchPct(startColor, target) };
+
+    // Track visited states to avoid loops (round colors to reduce state space)
+    const colorKey = c => `${Math.round(c[0])},${Math.round(c[1])},${Math.round(c[2])}`;
+    const visited = new Set([colorKey(startColor)]);
+
+    while (queue.length > 0) {
+        const current = queue.shift();
+
+        // Check if we found a perfect match
+        const currentMatch = matchPct(current.color, target);
+        if (currentMatch > bestSolution.bestMatch) {
+            bestSolution = {
+                path: current.path,
+                sourceIndices: current.sourceIndices,
+                bestMatch: currentMatch
+            };
+        }
+
+        // If perfect match found, return immediately
+        if (currentMatch >= 100) {
+            return bestSolution;
+        }
+
+        // Stop if we've reached the mix limit
+        if (current.sourceIndices.length >= limit) {
+            continue;
+        }
+
+        // Try mixing with each source color
+        for (let i = 0; i < sources.length; i++) {
+            const newColor = blend(current.color, sources[i], 0.5);
+            const key = colorKey(newColor);
+
+            if (!visited.has(key)) {
+                visited.add(key);
+                queue.push({
+                    color: newColor,
+                    path: [...current.path, newColor],
+                    sourceIndices: [...current.sourceIndices, i]
+                });
+            }
+        }
+    }
+
+    return bestSolution;
+}
+
+// Cache for computed solutions (computed on demand)
+const solutionCache = {};
+
+/**
+ * Get cached solution or compute it
+ */
+function getPuzzleSolution(puzzleIndex) {
+    if (!solutionCache[puzzleIndex]) {
+        const puzzle = PUZZLES[puzzleIndex];
+        // Allow extra mixes beyond limit to find better solution for learning
+        solutionCache[puzzleIndex] = solvePuzzle(puzzle, Math.max(puzzle.mixLimit, 6));
+    }
+    return solutionCache[puzzleIndex];
 }
 
 function getSessionTitle() {
@@ -673,12 +885,16 @@ function updateSessionBanner() {
 }
 
 // ============================================
-// STREAK SYSTEM (NEW)
+// STREAK SYSTEM
 // ============================================
 function loadStreak() {
     try {
         const saved = localStorage.getItem('huequest-streak');
         if (saved) streakData = JSON.parse(saved);
+        // Ensure maxStreak exists for backwards compatibility
+        if (typeof streakData.maxStreak === 'undefined') {
+            streakData.maxStreak = streakData.count;
+        }
     } catch (e) { }
 }
 
@@ -687,11 +903,14 @@ function saveStreak() {
 }
 
 function updateStreak() {
-    const today = new Date().toDateString();
+    const today = getTodayKey(); // Use Eastern time key
     if (streakData.lastPlayDate === today) {
         // Already played today, no change
     } else {
-        const yesterday = new Date(Date.now() - 86400000).toDateString();
+        const eastern = getEasternDate();
+        eastern.setDate(eastern.getDate() - 1);
+        const yesterday = `${eastern.getFullYear()}-${eastern.getMonth() + 1}-${eastern.getDate()}`;
+
         if (streakData.lastPlayDate === yesterday) {
             // Consecutive day!
             streakData.count++;
@@ -702,6 +921,12 @@ function updateStreak() {
             // First ever play
             streakData.count = 1;
         }
+
+        // Update max streak
+        if (streakData.count > streakData.maxStreak) {
+            streakData.maxStreak = streakData.count;
+        }
+
         streakData.lastPlayDate = today;
         saveStreak();
     }
@@ -713,6 +938,65 @@ function updateStreakDisplay() {
     if (streakBadge) {
         streakBadge.classList.toggle('inactive', streakData.count === 0);
     }
+}
+
+// ============================================
+// PLAYER STATS (Enhanced)
+// ============================================
+function loadPlayerStats() {
+    try {
+        const saved = localStorage.getItem('huequest-player-stats');
+        if (saved) {
+            const parsed = JSON.parse(saved);
+            // Merge with defaults for backwards compatibility
+            playerStats = { ...playerStats, ...parsed };
+        }
+    } catch (e) { }
+}
+
+function savePlayerStats() {
+    try { localStorage.setItem('huequest-player-stats', JSON.stringify(playerStats)); } catch (e) { }
+}
+
+function updatePlayerStats(puzzleNumber, score, tier, mixesUsed, mixLimit) {
+    playerStats.totalPuzzlesPlayed++;
+    playerStats.matchSum += score;
+
+    // Best match
+    if (score > playerStats.bestMatch) {
+        playerStats.bestMatch = score;
+    }
+
+    // Tier counts
+    playerStats.tierCounts[tier.class]++;
+
+    // Best efficiency (lowest mixes for highest score)
+    const efficiency = score / mixesUsed;
+    if (!playerStats.bestEfficiency || efficiency > (playerStats.bestEfficiency.score / playerStats.bestEfficiency.mixesUsed)) {
+        playerStats.bestEfficiency = { puzzleNumber, mixesUsed, mixLimit, score };
+    }
+
+    // Completed puzzles
+    playerStats.completedPuzzles[puzzleNumber] = {
+        score,
+        tier: tier.class,
+        mixes: mixesUsed,
+        mixLimit,
+        date: getTodayKey()
+    };
+
+    savePlayerStats();
+}
+
+function getAverageMatch() {
+    if (playerStats.totalPuzzlesPlayed === 0) return 0;
+    return Math.round(playerStats.matchSum / playerStats.totalPuzzlesPlayed);
+}
+
+function getEfficiencyDisplay() {
+    if (!playerStats.bestEfficiency) return '--';
+    const { mixesUsed, mixLimit, score } = playerStats.bestEfficiency;
+    return `${mixesUsed}/${mixLimit} (${score}%)`;
 }
 
 // ============================================
@@ -746,11 +1030,12 @@ function updatePersonalBest(puzzleIndex, score) {
 function updatePBDisplay(puzzleIndex, newPB = false) {
     if (!pbBadge) return;
     const pb = getPersonalBest(puzzleIndex);
+    const pbValue = document.getElementById('pbValue');
     if (pb !== null) {
-        pbBadge.textContent = `🏆 ${pb}%`;
+        if (pbValue) pbValue.textContent = `${pb}%`;
         pbBadge.classList.toggle('new-pb', newPB);
     } else {
-        pbBadge.textContent = '🏆 --';
+        if (pbValue) pbValue.textContent = '--';
         pbBadge.classList.remove('new-pb');
     }
 }
@@ -781,7 +1066,7 @@ function markDailyCompleted() {
 function updateCountdown() {
     const ms = getNextPuzzleTime();
     if (countdownBadge) {
-        countdownBadge.textContent = `⏰ ${formatCountdown(ms)}`;
+        countdownBadge.innerHTML = `${typeof getIcon === 'function' ? getIcon('clock') : ''} ${formatCountdown(ms)}`;
     }
     if (nextPuzzleTime) {
         nextPuzzleTime.textContent = formatCountdown(ms);
@@ -1237,7 +1522,9 @@ function updateUI() {
     // Buttons
     undoBtn.disabled = mixHistory.length === 0;
     commitBtn.disabled = isCommitted;
-    commitBtn.innerHTML = isCommitted ? '<span class="btn-icon">🔒</span> Locked In!' : '<span class="btn-icon">✓</span> Lock It In!';
+    const lockIcon = typeof getIcon === 'function' ? getIcon('lock') : '';
+    const checkIcon = typeof getIcon === 'function' ? getIcon('check') : '';
+    commitBtn.innerHTML = isCommitted ? `<span class="btn-icon">${lockIcon}</span> Locked In!` : `<span class="btn-icon">${checkIcon}</span> Lock It In!`;
 
     // Highlight commit button when player has made at least one mix
     const shouldHighlight = !isCommitted && mixCount > 0;
@@ -1299,6 +1586,10 @@ function loadPuzzle(index) {
     officialResultEl.classList.remove('show');
     sandboxNotice.classList.remove('show');
     hideDailyCompleteBanner();
+
+    // Reset solution display (clear previous puzzle's solution)
+    const solutionDisplay = document.getElementById('solutionDisplay');
+    if (solutionDisplay) solutionDisplay.style.display = 'none';
 
     // Source blobs
     sourceColors.innerHTML = puzzle.sources.map((c, i) =>
@@ -1438,9 +1729,7 @@ function applyMix(newColor) {
     updateHistoryStrip();
     updateUI();
 
-    // Check for chime on good match
-    const pct = matchPct(currentColor, puzzle.target);
-    if (pct >= 90) setTimeout(() => playSound('chime'), 200);
+    // Sound feedback removed - committing should be a risk without knowing match quality
 
     // Disable blobs at limit (if not sandbox)
     if (mixCount >= puzzle.mixLimit && !isSandboxMode) {
@@ -1512,6 +1801,10 @@ function commitResult() {
     // Track puzzle completion
     analytics.track('gameplay', 'puzzle_complete', tier.name, pct);
 
+    // Update enhanced player stats
+    const puzzleNumber = getPuzzleNumberForIndex(currentPuzzleIndex);
+    updatePlayerStats(puzzleNumber, pct, tier, mixCount, puzzle.mixLimit);
+
     showResultsModal();
 }
 
@@ -1521,7 +1814,9 @@ function showResultsModal() {
 
     // Use cozy title system instead of tier names
     const cozyTitle = getCozyTitle(pct);
-    resultCelebration.textContent = tier.icon;
+    // Set celebration icon based on tier
+    const iconMap = { perfect: 'sparkle', professional: 'palette', good: 'thumbsUp', training: 'muscle' };
+    resultCelebration.innerHTML = typeof getIcon === 'function' ? getIcon(iconMap[tier.class] || 'palette', 'hq-icon tier-icon') : tier.icon;
     resultTierDisplay.textContent = cozyTitle;
     resultTierDisplay.className = 'result-tier-display ' + tier.class;
     resultPercent.textContent = pct + '%';
@@ -1586,7 +1881,62 @@ function goNextPuzzle() {
 // ============================================
 // INIT
 // ============================================
+function initializeIcons() {
+    // Only run if icons.js is loaded
+    if (typeof getIcon !== 'function') {
+        console.warn('icons.js not loaded, using fallback emojis');
+        return;
+    }
+
+    const iconMappings = [
+        // Header icons
+        ['pbIcon', 'trophy'],
+        ['streakIcon', 'flame'],
+        ['soundOnIcon', 'soundOn'],
+        ['soundOffIcon', 'soundOff'],
+        ['resetIcon', 'refresh'],
+
+        // Action bar icons
+        ['undoIcon', 'undo'],
+        ['statsIcon', 'chart'],
+        ['commitIcon', 'check'],
+
+        // Navigation icons
+        ['prevIcon', 'chevronLeft'],
+        ['archiveIcon', 'archive'],
+        ['randomIcon', 'dice'],
+        ['nextIcon', 'chevronRight'],
+
+        // Sandbox & Results
+        ['sandboxIcon', 'flask'],
+        ['sandboxBtnIcon', 'flask'],
+        ['newPBIcon', 'trophy'],
+        ['efficiencyIcon', 'bolt'],
+        ['shareIcon', 'share'],
+        ['copyIcon', 'clipboard'],
+        ['solutionIcon', 'lightbulb'],
+        ['trySolutionIcon', 'flask'],
+
+        // Banners
+        ['completeIcon', 'checkCircle'],
+        ['practiceRandomIcon', 'dice'],
+
+        // Tutorial
+        ['tutorialTitleIcon', 'palette']
+    ];
+
+    iconMappings.forEach(([id, iconName]) => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.innerHTML = getIcon(iconName);
+        }
+    });
+}
+
 function init() {
+    // Initialize SVG icons first
+    initializeIcons();
+
     loadSession();
     updateSessionBanner();
 
@@ -1595,6 +1945,7 @@ function init() {
     loadPersonalBests();
     loadDailyCompleted();
     loadTutorialState();
+    loadPlayerStats();
     updateStreakDisplay();
 
     // Setup confetti canvas resize
@@ -1626,6 +1977,90 @@ function init() {
     sandboxBtn.addEventListener('click', enterSandbox);
     nextPuzzleBtn.addEventListener('click', goNextPuzzle);
 
+    // Show Solution button
+    const showSolutionBtn = $('showSolutionBtn');
+    const solutionDisplay = $('solutionDisplay');
+    const solutionSteps = $('solutionSteps');
+    const solutionMatch = $('solutionMatch');
+    const trySolutionBtn = $('trySolutionBtn');
+
+    if (showSolutionBtn) {
+        showSolutionBtn.addEventListener('click', () => {
+            if (solutionDisplay.style.display !== 'none') {
+                solutionDisplay.style.display = 'none';
+                showSolutionBtn.innerHTML = `${typeof getIcon === 'function' ? getIcon('lightbulb') : ''} Show Solution`;
+                return;
+            }
+
+            // Compute solution
+            const solution = getPuzzleSolution(currentPuzzleIndex);
+            const puzzle = PUZZLES[currentPuzzleIndex];
+
+            // Update match text
+            solutionMatch.textContent = `${solution.bestMatch}% in ${solution.sourceIndices.length} mixes`;
+
+            // Build visual path
+            solutionSteps.innerHTML = '';
+
+            // Get color names for sources
+            const sourceColors = puzzle.sources.map(s => getColorName(s));
+
+            // Add start color
+            const startStep = document.createElement('div');
+            startStep.className = 'solution-step';
+            startStep.innerHTML = `
+                <div class="solution-swatch" style="background-color: ${rgb(solution.path[0])}"></div>
+                <span class="solution-label">Start</span>
+            `;
+            solutionSteps.appendChild(startStep);
+
+            // Add each mix step
+            for (let i = 0; i < solution.sourceIndices.length; i++) {
+                // Arrow
+                const arrow = document.createElement('span');
+                arrow.className = 'solution-arrow';
+                arrow.textContent = '→';
+                solutionSteps.appendChild(arrow);
+
+                // Source color being added
+                const sourceIdx = solution.sourceIndices[i];
+                const sourceStep = document.createElement('div');
+                sourceStep.className = 'solution-step';
+                sourceStep.innerHTML = `
+                    <div class="solution-swatch" style="background-color: ${rgb(puzzle.sources[sourceIdx])}; border-style: dashed;"></div>
+                    <span class="solution-source-name">+ ${sourceColors[sourceIdx]}</span>
+                `;
+                solutionSteps.appendChild(sourceStep);
+
+                // Arrow
+                const arrow2 = document.createElement('span');
+                arrow2.className = 'solution-arrow';
+                arrow2.textContent = '=';
+                solutionSteps.appendChild(arrow2);
+
+                // Result color
+                const resultStep = document.createElement('div');
+                resultStep.className = 'solution-step';
+                resultStep.innerHTML = `
+                    <div class="solution-swatch" style="background-color: ${rgb(solution.path[i + 1])}"></div>
+                    <span class="solution-label">${i === solution.sourceIndices.length - 1 ? 'Final' : `Mix ${i + 1}`}</span>
+                `;
+                solutionSteps.appendChild(resultStep);
+            }
+
+            solutionDisplay.style.display = 'block';
+            showSolutionBtn.innerHTML = `${typeof getIcon === 'function' ? getIcon('eyeOff') : ''} Hide Solution`;
+        });
+    }
+
+    // Try solution in sandbox
+    if (trySolutionBtn) {
+        trySolutionBtn.addEventListener('click', () => {
+            enterSandbox();
+            // Solution is displayed, user can follow along
+        });
+    }
+
     // Practice random button (for returning users)
     const practiceRandomBtn = $('practiceRandomBtn');
     if (practiceRandomBtn) {
@@ -1645,8 +2080,8 @@ function init() {
         shareBtn.addEventListener('click', async () => {
             const success = await shareResults();
             if (success) {
-                shareBtn.textContent = '✓ Shared!';
-                setTimeout(() => { shareBtn.textContent = '📤 Share'; }, 2000);
+                shareBtn.innerHTML = `${typeof getIcon === 'function' ? getIcon('check') : '✓'} Shared!`;
+                setTimeout(() => { shareBtn.innerHTML = `${typeof getIcon === 'function' ? getIcon('share') : ''} Share`; }, 2000);
             }
         });
     }
@@ -1664,9 +2099,9 @@ function init() {
             );
             const success = await copyToClipboard(shareText);
             if (success) {
-                copyBtn.textContent = '✓ Copied!';
+                copyBtn.innerHTML = `${typeof getIcon === 'function' ? getIcon('check') : '✓'} Copied!`;
                 analytics.track('engagement', 'copy_click');
-                setTimeout(() => { copyBtn.textContent = '📋 Copy'; }, 2000);
+                setTimeout(() => { copyBtn.innerHTML = `${typeof getIcon === 'function' ? getIcon('clipboard') : ''} Copy`; }, 2000);
             }
         });
     }
@@ -1684,6 +2119,38 @@ function init() {
         tutorialSkipBtn.addEventListener('click', skipTutorial);
     }
 
+    // Stats button
+    const statsBtn = $('statsBtn');
+    const closeStatsBtn = $('closeStatsBtn');
+    const statsOverlay = $('statsOverlay');
+    if (statsBtn) {
+        statsBtn.addEventListener('click', showStats);
+    }
+    if (closeStatsBtn) {
+        closeStatsBtn.addEventListener('click', hideStats);
+    }
+    if (statsOverlay) {
+        statsOverlay.addEventListener('click', (e) => {
+            if (e.target === statsOverlay) hideStats();
+        });
+    }
+
+    // Archive button
+    const archiveBtn = $('archiveBtn');
+    const closeArchiveBtn = $('closeArchiveBtn');
+    const archiveOverlay = $('archiveOverlay');
+    if (archiveBtn) {
+        archiveBtn.addEventListener('click', showArchive);
+    }
+    if (closeArchiveBtn) {
+        closeArchiveBtn.addEventListener('click', hideArchive);
+    }
+    if (archiveOverlay) {
+        archiveOverlay.addEventListener('click', (e) => {
+            if (e.target === archiveOverlay) hideArchive();
+        });
+    }
+
     // Load today's daily puzzle
     const dailyIndex = getDailyPuzzleIndex();
     loadPuzzle(dailyIndex);
@@ -1697,6 +2164,133 @@ function init() {
     if (!tutorialComplete) {
         setTimeout(showTutorial, 500);
     }
+}
+
+// ============================================
+// STATS SCREEN
+// ============================================
+function showStats() {
+    const statsOverlay = $('statsOverlay');
+    if (!statsOverlay) return;
+
+    // Populate stats
+    const statPlayed = $('statPlayed');
+    const statStreak = $('statStreak');
+    const statMaxStreak = $('statMaxStreak');
+    const statBestMatch = $('statBestMatch');
+    const statAvgMatch = $('statAvgMatch');
+    const statEfficiency = $('statEfficiency');
+    const tierPerfect = $('tierPerfect');
+    const tierProfessional = $('tierProfessional');
+    const tierGood = $('tierGood');
+    const tierTraining = $('tierTraining');
+
+    if (statPlayed) statPlayed.textContent = playerStats.totalPuzzlesPlayed;
+    if (statStreak) statStreak.textContent = streakData.count;
+    if (statMaxStreak) statMaxStreak.textContent = streakData.maxStreak || 0;
+    if (statBestMatch) statBestMatch.textContent = playerStats.bestMatch > 0 ? `${playerStats.bestMatch}%` : '--%';
+    if (statAvgMatch) statAvgMatch.textContent = playerStats.totalPuzzlesPlayed > 0 ? `${getAverageMatch()}%` : '--%';
+    if (statEfficiency) statEfficiency.textContent = getEfficiencyDisplay();
+
+    // Tier distribution
+    if (tierPerfect) tierPerfect.textContent = playerStats.tierCounts.perfect;
+    if (tierProfessional) tierProfessional.textContent = playerStats.tierCounts.professional;
+    if (tierGood) tierGood.textContent = playerStats.tierCounts.good;
+    if (tierTraining) tierTraining.textContent = playerStats.tierCounts.training;
+
+    // Update bar widths based on counts
+    const total = playerStats.totalPuzzlesPlayed || 1;
+    const tierBars = document.querySelectorAll('.tier-bar');
+    tierBars.forEach(bar => {
+        const tier = bar.dataset.tier;
+        const count = playerStats.tierCounts[tier] || 0;
+        const percentage = (count / total) * 100;
+        bar.style.setProperty('--bar-width', `${Math.max(5, percentage)}%`);
+    });
+
+    statsOverlay.classList.add('show');
+    analytics.track('engagement', 'stats_view');
+}
+
+function hideStats() {
+    const statsOverlay = $('statsOverlay');
+    if (statsOverlay) statsOverlay.classList.remove('show');
+}
+
+// ============================================
+// ARCHIVE SCREEN
+// ============================================
+function showArchive() {
+    const archiveOverlay = $('archiveOverlay');
+    const archiveGrid = $('archiveGrid');
+    if (!archiveOverlay || !archiveGrid) return;
+
+    // Generate archive grid
+    const currentPuzzleNum = getDailyPuzzleNumber();
+    let html = '';
+
+    // Show puzzles from 1 to current
+    const puzzlesToShow = Math.min(currentPuzzleNum, PUZZLES.length);
+    for (let num = puzzlesToShow; num >= 1; num--) {
+        const isCompleted = playerStats.completedPuzzles[num];
+        const isFree = isPuzzleFree(num);
+        const isToday = num === currentPuzzleNum;
+        const puzzleIndex = getPuzzleIndexFromNumber(num);
+        const puzzle = PUZZLES[puzzleIndex];
+
+        let statusClass = '';
+        let statusIcon = '';
+        let clickable = false;
+
+        if (isToday) {
+            statusClass = 'today';
+            statusIcon = '★';
+            clickable = true;
+        } else if (isCompleted) {
+            statusClass = 'completed';
+            statusIcon = `${isCompleted.score}%`;
+            clickable = true;
+        } else if (isFree) {
+            statusClass = 'available';
+            statusIcon = '○';
+            clickable = true;
+        } else {
+            statusClass = 'locked';
+            statusIcon = '🔒';
+            clickable = false;
+        }
+
+        html += `
+            <div class="archive-item ${statusClass} ${puzzle.difficulty}" 
+                 data-puzzle="${num}" 
+                 ${clickable ? 'data-clickable="true"' : ''}>
+                <span class="archive-num">#${num}</span>
+                <span class="archive-status">${statusIcon}</span>
+                <span class="archive-name">${puzzle.name}</span>
+            </div>
+        `;
+    }
+
+    archiveGrid.innerHTML = html;
+
+    // Add click handlers
+    archiveGrid.querySelectorAll('.archive-item[data-clickable="true"]').forEach(item => {
+        item.addEventListener('click', () => {
+            const puzzleNum = parseInt(item.dataset.puzzle);
+            const puzzleIndex = getPuzzleIndexFromNumber(puzzleNum);
+            hideArchive();
+            hideDailyCompleteBanner();
+            loadPuzzle(puzzleIndex);
+        });
+    });
+
+    archiveOverlay.classList.add('show');
+    analytics.track('engagement', 'archive_view');
+}
+
+function hideArchive() {
+    const archiveOverlay = $('archiveOverlay');
+    if (archiveOverlay) archiveOverlay.classList.remove('show');
 }
 
 init();

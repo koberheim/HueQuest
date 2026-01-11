@@ -41,20 +41,22 @@
                 <div class="puzzle-badge">
                     <span class="puzzle-label" id="puzzleLabel">Puzzle #1</span>
                     <span class="difficulty-badge" id="difficultyBadge">Easy</span>
-                    <span class="pb-badge" id="pbBadge" title="Personal Best">★ --</span>
+                    <span class="pb-badge" id="pbBadge" title="Personal Best"><span class="pb-icon" id="pbIcon"></span>
+                        <span id="pbValue">--</span></span>
                     <span class="countdown-badge" id="countdownBadge" title="Next Puzzle">--:--:--</span>
                 </div>
             </div>
             <div class="streak-badge" id="streakBadge" title="Daily Streak">
+                <span class="streak-icon" id="streakIcon"></span>
                 <span class="streak-count" id="streakCount">0</span>
                 <span class="streak-label">day streak</span>
             </div>
             <div class="top-controls">
                 <button class="icon-btn" id="soundToggle" title="Toggle Sound">
-                    <span class="sound-on">♪</span>
-                    <span class="sound-off">♪̸</span>
+                    <span class="sound-on" id="soundOnIcon"></span>
+                    <span class="sound-off" id="soundOffIcon"></span>
                 </button>
-                <button class="icon-btn" id="resetBtn" title="Reset Puzzle">⟲</button>
+                <button class="icon-btn" id="resetBtn" title="Reset Puzzle"><span id="resetIcon"></span></button>
             </div>
         </header>
 
@@ -121,18 +123,24 @@
         <!-- Action Buttons -->
         <div class="action-bar">
             <button class="btn btn-secondary" id="undoBtn" disabled>
-                <span class="btn-icon">↩</span> Undo
+                <span class="btn-icon" id="undoIcon"></span> Undo
+            </button>
+            <button class="btn btn-icon-only" id="statsBtn" title="Your Stats">
+                <span class="btn-icon" id="statsIcon"></span>
             </button>
             <button class="btn btn-primary" id="commitBtn">
-                <span class="btn-icon">✓</span> Lock It In!
+                <span class="btn-icon" id="commitIcon"></span> Lock It In!
             </button>
         </div>
 
         <!-- Puzzle Navigation -->
         <div class="puzzle-nav">
-            <button class="nav-btn" id="prevBtn" title="Previous Puzzle">‹ Prev</button>
-            <button class="nav-btn random" id="randomBtn" title="Random Puzzle">🎲 Random</button>
-            <button class="nav-btn" id="nextBtn" title="Next Puzzle">Next ›</button>
+            <button class="nav-btn" id="prevBtn" title="Previous Puzzle"><span id="prevIcon"></span> Prev</button>
+            <button class="nav-btn" id="archiveBtn" title="Puzzle Archive"><span id="archiveIcon"></span>
+                Archive</button>
+            <button class="nav-btn random" id="randomBtn" title="Random Puzzle"><span id="randomIcon"></span>
+                Random</button>
+            <button class="nav-btn" id="nextBtn" title="Next Puzzle">Next <span id="nextIcon"></span></button>
         </div>
 
         <!-- Official Result Banner (shown after commit) -->
@@ -147,7 +155,7 @@
                 <div class="result-efficiency" id="officialEfficiency">Used 3/5 mixes</div>
             </div>
             <div class="sandbox-notice" id="sandboxNotice">
-                <span class="sandbox-badge">🧪 Sandbox Mode</span>
+                <span class="sandbox-badge"><span id="sandboxIcon"></span> Sandbox Mode</span>
                 <span class="sandbox-text">Continue experimenting — your official score is saved!</span>
             </div>
         </div>
@@ -158,8 +166,8 @@
         <!-- Results Modal -->
         <div class="results-overlay" id="resultsOverlay">
             <div class="results-modal">
-                <div class="result-celebration" id="resultCelebration">🎨</div>
-                <div class="new-pb-indicator" id="newPBIndicator">🏆 NEW PERSONAL BEST!</div>
+                <div class="result-celebration" id="resultCelebration"></div>
+                <div class="new-pb-indicator" id="newPBIndicator"><span id="newPBIcon"></span> NEW PERSONAL BEST!</div>
                 <div class="result-tier-display" id="resultTierDisplay">Professional Eye</div>
                 <div class="result-match">
                     <span class="result-percent" id="resultPercent">92%</span>
@@ -177,7 +185,7 @@
                     </div>
                 </div>
                 <div class="result-efficiency-display" id="resultEfficiencyDisplay">
-                    <span class="efficiency-icon">⚡</span>
+                    <span class="efficiency-icon" id="efficiencyIcon"></span>
                     <span class="efficiency-text" id="resultEfficiencyText">Efficiency bonus for solving in 3/5
                         mixes!</span>
                 </div>
@@ -186,11 +194,31 @@
                     <div class="result-history" id="resultHistory"></div>
                 </div>
                 <div class="result-actions">
-                    <button class="btn btn-share" id="shareBtn">📤 Share</button>
-                    <button class="btn btn-copy" id="copyBtn">📋 Copy</button>
+                    <button class="btn btn-share" id="shareBtn"><span id="shareIcon"></span> Share</button>
+                    <button class="btn btn-copy" id="copyBtn"><span id="copyIcon"></span> Copy</button>
+                    <button class="btn btn-solution" id="showSolutionBtn"><span id="solutionIcon"></span> Show
+                        Solution</button>
                 </div>
+
+                <!-- Solution Display (hidden by default) -->
+                <div class="solution-display" id="solutionDisplay" style="display: none;">
+                    <div class="solution-header">
+                        <span class="solution-title">✨ Optimal Solution</span>
+                        <span class="solution-match" id="solutionMatch">100% in 4 mixes</span>
+                    </div>
+                    <div class="solution-path">
+                        <div class="solution-steps" id="solutionSteps">
+                            <!-- Steps generated by JS -->
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary btn-try-solution" id="trySolutionBtn">
+                        <span id="trySolutionIcon"></span> Try This in Sandbox
+                    </button>
+                </div>
+
                 <div class="result-actions" style="margin-top: 10px;">
-                    <button class="btn btn-secondary" id="sandboxBtn">🧪 Keep Experimenting</button>
+                    <button class="btn btn-secondary" id="sandboxBtn"><span id="sandboxBtnIcon"></span> Keep
+                        Experimenting</button>
                     <button class="btn btn-primary" id="nextPuzzleBtn">Next Puzzle →</button>
                 </div>
             </div>
@@ -200,12 +228,13 @@
     <!-- Daily Complete Banner -->
     <div class="daily-complete-banner" id="dailyCompleteBanner">
         <div class="banner-content">
-            <span class="banner-icon">✅</span>
+            <span class="banner-icon" id="completeIcon"></span>
             <span class="banner-text">Today's puzzle complete!</span>
             <span class="banner-countdown">Next puzzle in <span id="nextPuzzleTime">--:--:--</span></span>
         </div>
         <div class="banner-cta">
-            <button class="btn btn-banner" id="practiceRandomBtn">🎲 Practice with Random Puzzle</button>
+            <button class="btn btn-banner" id="practiceRandomBtn"><span id="practiceRandomIcon"></span> Practice with
+                Random Puzzle</button>
         </div>
     </div>
 
@@ -213,7 +242,7 @@
     <div class="tutorial-overlay" id="tutorialOverlay">
         <div class="tutorial-modal">
             <div class="tutorial-content">
-                <h3 class="tutorial-title">Welcome to HueQuest! 🎨</h3>
+                <h3 class="tutorial-title">Welcome to HueQuest! <span id="tutorialTitleIcon"></span></h3>
                 <p class="tutorial-text">Match the target color by mixing source colors. Each day brings a new puzzle!
                 </p>
             </div>
@@ -232,6 +261,75 @@
         </div>
     </div>
 
+    <!-- Stats Modal -->
+    <div class="stats-overlay" id="statsOverlay">
+        <div class="stats-modal">
+            <h2 class="stats-title">Your Stats</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-value" id="statPlayed">0</span>
+                    <span class="stat-label">Played</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="statStreak">0</span>
+                    <span class="stat-label">Current Streak</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="statMaxStreak">0</span>
+                    <span class="stat-label">Max Streak</span>
+                </div>
+                <div class="stat-item highlight">
+                    <span class="stat-value" id="statBestMatch">--%</span>
+                    <span class="stat-label">Best Match</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="statAvgMatch">--%</span>
+                    <span class="stat-label">Avg Match</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="statEfficiency">--</span>
+                    <span class="stat-label">Best Efficiency</span>
+                </div>
+            </div>
+            <h3 class="tier-title">Tier Distribution</h3>
+            <div class="tier-chart" id="tierChart">
+                <div class="tier-bar perfect" data-tier="perfect">
+                    <span class="tier-count" id="tierPerfect">0</span>
+                    <span class="tier-name">Perfect</span>
+                </div>
+                <div class="tier-bar professional" data-tier="professional">
+                    <span class="tier-count" id="tierProfessional">0</span>
+                    <span class="tier-name">Pro</span>
+                </div>
+                <div class="tier-bar good" data-tier="good">
+                    <span class="tier-count" id="tierGood">0</span>
+                    <span class="tier-name">Good</span>
+                </div>
+                <div class="tier-bar training" data-tier="training">
+                    <span class="tier-count" id="tierTraining">0</span>
+                    <span class="tier-name">Training</span>
+                </div>
+            </div>
+            <button class="btn btn-primary" id="closeStatsBtn">Close</button>
+        </div>
+    </div>
+
+    <!-- Archive Modal -->
+    <div class="archive-overlay" id="archiveOverlay">
+        <div class="archive-modal">
+            <h2 class="archive-title">Puzzle Archive</h2>
+            <p class="archive-subtitle">Last 7 days free • Older puzzles require Premium</p>
+            <div class="archive-grid" id="archiveGrid"></div>
+            <div class="archive-legend">
+                <span class="legend-item completed">✓ Completed</span>
+                <span class="legend-item available">○ Available</span>
+                <span class="legend-item locked">🔒 Premium</span>
+            </div>
+            <button class="btn btn-primary" id="closeArchiveBtn">Close</button>
+        </div>
+    </div>
+
+    <script src="icons.js"></script>
     <script src="game.js"></script>
 </body>
 
