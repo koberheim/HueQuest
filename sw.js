@@ -1,4 +1,4 @@
-const CACHE_NAME = 'huequest-v6';
+const CACHE_NAME = 'huequest-v7';
 const urlsToCache = [
     './',
     './index.html',

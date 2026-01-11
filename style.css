@@ -1581,7 +1581,7 @@ body::before {
 .tutorial-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(15, 23, 42, 0.85);
+    background: rgba(74, 55, 40, 0.85);
     backdrop-filter: blur(8px);
     display: flex;
     justify-content: center;
@@ -1599,15 +1599,19 @@ body::before {
 }
 
 .tutorial-modal {
-    background: var(--card);
+    background: var(--cream);
     padding: 32px;
     border-radius: var(--r-xl);
     text-align: center;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    box-shadow:
+        0 20px 50px rgba(74, 55, 40, 0.4),
+        0 0 0 3px var(--kraft-dark),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
     max-width: 340px;
     width: 100%;
     transform: scale(0.9) translateY(20px);
-    transition: transform 0.4s cubic-bezier(.34, 1.56, .64, 1)
+    transition: transform 0.4s cubic-bezier(.34, 1.56, .64, 1);
+    border: 2px solid var(--kraft-dark)
 }
 
 .tutorial-overlay.show .tutorial-modal {
@@ -1623,7 +1627,7 @@ body::before {
     font-weight: 800;
     color: var(--text);
     margin-bottom: 12px;
-    background: linear-gradient(135deg, var(--accent), var(--purple));
+    background: linear-gradient(135deg, var(--accent), var(--danger));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text
@@ -1631,7 +1635,7 @@ body::before {
 
 .tutorial-text {
     font-size: 15px;
-    color: var(--text2);
+    color: var(--text-light);
     line-height: 1.6
 }
 
@@ -1646,12 +1650,14 @@ body::before {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: var(--border);
+    background: var(--kraft-light);
+    border: 1px solid var(--kraft-dark);
     transition: all 0.3s
 }
 
 .tutorial-dot.active {
     background: var(--accent);
+    border-color: var(--accent);
     transform: scale(1.2)
 }
 
